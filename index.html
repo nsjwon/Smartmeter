@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<script src="./js/jquery-3.6.3.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.14.3/xlsx.full.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js"></script>
+	<title>[원격검침시스템 - 작업현황]</title>
+
+	<script>  
+		function s2ab(s) { 
+			var buf = new ArrayBuffer(s.length); //convert s to arrayBuffer
+			var view = new Uint8Array(buf);  //create uint8array as viewer
+			for (var i=0; i<s.length; i++) view[i] = s.charCodeAt(i) & 0xFF; //convert to octet
+			return buf;    
+		}
+		function exportExcel(){ 
+			// step 1. workbook 생성
+			var wb = XLSX.utils.book_new();
+		
+			// step 2. 시트 만들기 
+			var newWorksheet = excelHandler.getWorksheet();
+			
+			// step 3. workbook에 새로만든 워크시트에 이름을 주고 붙인다.  
+			XLSX.utils.book_append_sheet(wb, newWorksheet, excelHandler.getSheetName());
+		
+			// step 4. 엑셀 파일 만들기 
+			var wbout = XLSX.write(wb, {bookType:'xlsx',  type: 'binary'});
+		
+			// step 5. 엑셀 파일 내보내기 
+			saveAs(new Blob([s2ab(wbout)],{type:"application/octet-stream"}), excelHandler.getExcelFileName());
+		}
+		$(document).ready(function() { 
+			$("#excelFileExport").click(function(){
+				exportExcel();
+			});
+		});
+
+		
+		var excelHandler = {
+				getExcelFileName : function(){
+					return 'KDN퍼블리싱_작업현황.xlsx';
+				},
+				getSheetName : function(){
+					return 'KDN퍼블리싱_작업현황';
+				},
+				getExcelData : function(){
+					return document.getElementById('table'); 
+				},
+				getWorksheet : function(){
+					return XLSX.utils.table_to_sheet(this.getExcelData());
+				}
+		}
+	</script>
+	<style type="text/css">
+		body {
+			margin: 0;
+			padding: 30px;
+			font-family: '맑은 고딕';
+			font-size: 18px;
+			color: #333;
+			line-height: 30px;
+		}
+
+		h1 {
+			margin: 0 0 30px;
+			padding: 0;
+			font-size: 30px;
+			color: #000;
+			text-align: center;
+			letter-spacing: -1px;
+			line-height: 50px;
+			letter-spacing: -1px;
+		}
+
+		table {
+			overflow: hidden;
+			width: 100%;
+			border-collapse: collapse;
+			font-size: 14px;
+		}
+
+		table caption {
+			overflow: hidden;
+			width: 0;
+			height: 0;
+			margin: 0;
+			padding: 0;
+			font-size: 0;
+			line-height: 0;
+		}
+
+		table tr:nth-child(even) {
+			background-color: #F6F6F9;
+		}
+		
+		table tr.notyet  {
+			background-color: #f9f1f0;
+		}
+		table th {
+			position: relative;
+			padding: 5px;
+			border-top: 3px solid #4876EB;
+		}
+
+		table th:before {
+			position: absolute;
+			left: -1px;
+			top: 50%;
+			width: 1px;
+			height: 10px;
+			margin-top: -5px;
+			background-color: #ccc;
+			content: '';
+		}
+
+		table td {
+			padding: 0px 15px;
+			border: 1px solid #efefef;
+		}
+
+		table td:first-child {
+			border-left: 0 none;
+		}
+
+		table td:nth-child(6) {
+			font-size: 13px;
+			color: red;
+			/* font-weight: 600; */
+			letter-spacing: -1px;
+			line-height: 25px;
+			text-align: center;
+		}
+
+		table td:nth-child(7) {
+			text-align: center;
+		}
+
+		table td:nth-child(8) {
+			text-align: center;
+		}
+
+		table td:nth-child(10) {
+			text-align: center;
+		}
+
+		table td:last-child {
+			border-right: 0 none;
+			font-size: 13px;
+			color: #555;
+			letter-spacing: -1px;
+			line-height: 25px;
+		}
+
+		table a {
+			color: #146DB6;
+		}
+
+		table .blank {
+			height: 15px;
+			padding: 0;
+			border: 0 none;
+			background-color: #fcfcfc;
+			font-size: 0;
+			line-height: 0;
+		}
+
+		.project {
+			overflow: hidden;
+			position: relative;
+			margin-bottom: 30px;
+			padding: 20px 20px 20px 0;
+			border: 1px solid #efefef;
+			background-color: #fcfcfc;
+		}
+
+		.project li {
+			margin-left: 20px;
+		}
+
+		.info {
+			position: absolute;
+			left: 20px;
+			top: 20px;
+			margin: 0;
+			padding: 0;
+		}
+
+		.info .option {
+			color: #ccc;
+		}
+
+		.info .option span {
+			text-decoration: line-through;
+		}
+
+		.info .option strong {
+			font-weight: bold;
+			color: #333;
+		}
+
+		.history {
+			padding: 15px 0;
+		}
+
+		.history ul {
+			overflow: hidden;
+			overflow-y: auto;
+			margin: 0 15px;
+			padding: 0;
+			list-style: none;
+		}
+
+		.history li {
+			position: relative;
+			margin-left: 10px;
+			padding-left: 162px;
+			font-size: 14px;
+			color: #666;
+		}
+
+		.history strong {
+			color: #1c1d1f;
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		.history strong:before {
+			position: absolute;
+			left: 142px;
+			top: 50%;
+			width: 1px;
+			height: 10px;
+			margin-top: -4px;
+			background-color: #999;
+			content: '';
+		}
+
+		.add {
+			color: red;
+		}
+
+		.modify {
+			color: orange;
+		}
+		#excelFileExport {
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>원격검침시스템 퍼블리싱 작업현황</h1>
+
+	<div class="project">
+
+		<div class="history">
+			<ul>
+				<li>
+					<strong>기준일</strong>
+					<span>2024-05-08</span>
+				</li>
+				<li>
+					<strong>총 작업량</strong>
+					<span>화면 중 화면 완료</span>
+				</li>
+				<li>
+					<strong>카테고리 별 작업률</strong>
+					<span>
+						로그인(/1)
+						메인화면(/1)
+					</span>
+				</li>
+				<li>
+					<strong>소스파일URL</strong>
+					<span><a href="https://github.com/nsjwon/Smartmeter">Git Repository - https://github.com/nsjwon/Smartmeter</a></span>
+				</li>
+				<li>
+					<strong>작업현황 내보내기</strong>
+					<input type="button" id="excelFileExport" value="엑셀 다운로드">
+				</li>
+			</ul>
+		</div>
+	</div>
+	<table id="table">
+		<caption>메뉴구조도에 따른 작업현황</caption>
+		<colgroup>
+			<col width="15%">
+			<col width="15%">
+			<col width="25%">
+			<col width="12%">
+			<col width="18%">
+			<col width="5%">
+			<col width="5%">
+			<col width="5%">
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope="col">대분류</th>
+				<th scope="col">단위업무</th>
+				<th scope="col">메뉴설명</th>
+				<th scope="col">화면유형</th>
+				<th scope="col">화면링크</th>
+				<th scope="col">상태</th>
+				<th scope="col">퍼블리싱</th>
+				<th scope="col"><a href="https://validator.w3.org/nu/" target="_blank">웹표준</a></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>0. 로그인화면</strong></td>
+				<td>로그인화면</td>
+				<td>로그인화면</td>
+				<td></td>
+				<td><a href="./login.html" target="_blank">login.html</a></td>
+				<td></td>
+				<td>X</td>
+				<td>
+					X
+					<br>
+					<a href="https://validator.w3.org/"
+						target="_blank">결과보기</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="10" class="blank"></td>
+			</tr>
+
+			<tr>
+				<td colspan="10" class="blank"></td>
+			</tr>
+
+			<tr>
+				<td><strong>1. 메인화면</strong></td>
+				<td>메인화면</td>
+				<td>메인화면</td>
+				<td></td>
+				<td><a href="./main.html" target="_blank">main.html</a></td>
+				<td></td>
+				<td>X</td>
+				<td>
+					X
+					<br>
+					<a href="https://validator.w3.org/"
+						target="_blank">결과보기</a>
+				</td>
+			</tr>
+
+			<tr>
+				<td colspan="10" class="blank"></td>
+			</tr>
+
+			<tr id="resultRow">
+				<td><strong></strong></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td id="resultCell"></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>

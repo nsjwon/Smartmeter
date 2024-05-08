@@ -1,0 +1,62 @@
+@import url(fonts.css);
+/*-------------------------------------------------
+Author : jwshin
+Create date : 2024-05-08
+Version : v1.0
+-------------------------------------------------*/
+
+/* 로그인 페이지 */
+.login-bg {width: 100%; height: 100vh; background: url(../images/main/bg_login.png) no-repeat; background-size: cover; display: flex; align-items: center; justify-content: center;}
+.login-wrap {width: 480px; padding: 60px; background: #fff; border-radius: 12px; box-shadow: 0px 12px 32px 0px rgba(0, 0, 0, 0.08);}
+.login-wrap.noutil {height: 480px;}
+.login-wrap .login-logo {display: block; width: 100%; text-align: center; margin-bottom: 60px;}
+.login-wrap>label {display: flex; flex-direction: column; color: #333; font-weight: 500; font-size: 14px;}
+.login-wrap>label>input {height: 46px; font-size: 15px; margin-top: 8px; border: 1px solid #c5cbda; border-radius: 4px; padding: 10px 18px; color: #343a40;}
+.login-wrap>label>input:focus {outline: #4763c2 2px solid;}
+.login-wrap>label>input:focus + label {color: #4763c2;}
+.login-ut {color: #818997; display: flex; justify-content: space-between; align-items: center; font-size: 13px;}
+.login-ut .rm-id {margin-right: 8px;}
+.find-pw {text-decoration: underline;}
+.find-pw:hover {color: #333;}
+.login-button {position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 52px; border-radius: 4px; background: linear-gradient(90deg, rgba(55,111,220,1) 0%, rgba(85,110,230,1) 100%); background-position: 0%; color: #fff; font-weight: 600; margin-top: 54px; transition: all .5s;}
+.login-button::after {position: absolute; opacity: 0; top: 0; left: 0; width: 100%; height: 100%; border-radius: 4px; content: '로그인'; display: flex; align-items: center; justify-content: center; background: linear-gradient(90deg, rgb(92, 118, 248) 0%, rgb(62, 123, 246) 100%); transition: all .3s;}
+.login-button:hover::after {opacity: 1;}
+.signup-button {border: 1px solid #466fe1; display: flex; align-items: center; justify-content: center; width: 100%; height: 52px; border-radius: 4px; color: #466fe1; font-weight: 600; margin-top: 14px; transition: all .3s;}
+.signup-button:hover {background: #466fe1; color: #fff; transition: all .3s;}
+
+/* 레프트 메뉴 */
+#left-menu {width: 28rem; padding: 4rem 1.6rem; display: flex; flex-direction: column; background: #2a3042; min-height: 100vh;}
+#logo {height: 3rem; padding: 0 2.4rem;}
+#gnb {margin: 4rem 0;}
+.one-depth .d1>a {color: #8d97b4; position: relative; width: 248px; height: 52px; padding: 0 20px 0 54px; font-size: 1.6rem; font-weight: 500; display: flex; align-items: center;}
+.one-depth .d1>a:before {position: absolute; left: 20px; top: 16px; content: ''; display: block; width: 20px; height: 20px;}
+.one-depth .d1:first-child>a:before {background: url(../images/nav/side01-normal.svg) no-repeat; background-size: contain;}
+.one-depth .d1:nth-child(2)>a:before {background: url(../images/nav/side02-normal.svg) no-repeat; background-size: contain;}
+.one-depth .d1:nth-child(3)>a:before {background: url(../images/nav/side03-normal.svg) no-repeat; background-size: contain;}
+.one-depth .d1:nth-child(4)>a:before {background: url(../images/nav/side04-normal.svg) no-repeat; background-size: contain;}
+.one-depth .d1:nth-child(5)>a:before {background: url(../images/nav/side05-normal.svg) no-repeat; background-size: contain;}
+.one-depth .d1:nth-child(6)>a:before {background: url(../images/nav/side06-normal.svg) no-repeat; background-size: contain;}
+.one-depth .d1:nth-child(7)>a:before {background: url(../images/nav/side07-normal.svg) no-repeat; background-size: contain;}
+.one-depth .d1:nth-child(8)>a:before {background: url(../images/nav/side08-normal.svg) no-repeat; background-size: contain;}
+.one-depth .d1:nth-child(9)>a:before {background: url(../images/nav/side09-normal.svg) no-repeat; background-size: contain;}
+.one-depth .d1.active:first-child>a:before {background: url(../images/nav/side01-active.svg) no-repeat; background-size: contain;}
+.one-depth .d1.active:nth-child(2)>a:before {background: url(../images/nav/side02-active.svg) no-repeat; background-size: contain;}
+.one-depth .d1.active:nth-child(3)>a:before {background: url(../images/nav/side03-active.svg) no-repeat; background-size: contain;}
+.one-depth .d1.active:nth-child(4)>a:before {background: url(../images/nav/side04-active.svg) no-repeat; background-size: contain;}
+.one-depth .d1.active:nth-child(5)>a:before {background: url(../images/nav/side05-active.svg) no-repeat; background-size: contain;}
+.one-depth .d1.active:nth-child(6)>a:before {background: url(../images/nav/side06-active.svg) no-repeat; background-size: contain;}
+.one-depth .d1.active:nth-child(7)>a:before {background: url(../images/nav/side07-active.svg) no-repeat; background-size: contain;}
+.one-depth .d1.active:nth-child(8)>a:before {background: url(../images/nav/side08-active.svg) no-repeat; background-size: contain;}
+.one-depth .d1.active:nth-child(9)>a:before {background: url(../images/nav/side09-active.svg) no-repeat; background-size: contain;}
+.one-depth .d1>a:after {position: absolute; right: 20px; top: 16px; content: ''; display: block; width: 20px; height: 20px; background: url(../images/main/ic_arrowdown.svg) no-repeat;}
+.one-depth .d1.active>a {color: #fff; padding: 0 14px 0 54px; border-radius: 8px; background: linear-gradient(90deg, rgba(85,110,230,1) 0%, rgba(55,171,236,1) 100%);}
+.one-depth .d1.active>a:after {position: absolute; right: 20px; top: 16px; content: ''; display: block; width: 20px; height: 20px; background: url(../images/main/ic_arrowup.svg) no-repeat;}
+.two-depth {padding: 11px 0 16px 0;}
+.two-depth li {padding: 1px 0;}
+.two-depth li a {color: #8d97b4; width: 100%; display: block; height: 35px; line-height: 35px; padding: 0 20px 0 56px; border-radius: 6px;}
+.two-depth li a:hover {background: #242a3a; color: #fff;}
+.two-depth li.focus a {text-decoration: underline; font-weight: 600; color: #fff; background: #405DBC;}
+
+/* 메인 컨텐츠 */
+#main-wrap {background: #f0f2f8; padding: 4rem; flex: 1;}
+.main-title {font-weight: 600; color: #79829C; font-size: 15px;}
