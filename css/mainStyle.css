@@ -110,7 +110,7 @@ Version : v1.0
 .right-cont .month-select select {cursor: pointer; padding: 4px 20px 4px 8px; font-size: 14px; background: none; border-radius: 4px; width: 8rem; border: 1px solid #E2E6EB; height: 26px;}
 .right-cont .ic_arrow {position: absolute; right: 8px; top: 12px; display: block; width: 14px; height: 14px; background: url(../images/main/ic_select-s.svg) no-repeat; background-size: contain;}
 .right-cont .month-select select:focus + .ic_arrow {transform: rotate(-180deg);}
-.right-cont .rc-body {flex: 1; align-self: stretch;}
+.right-cont .rc-body {flex: 1; align-self: stretch; display: flex; align-items: center;}
 .right-cont {background: #fff; color: #343a40; border-radius: 8px; align-self: stretch; display: flex; flex-direction: column;}
 .prd-select {display: flex; height: 36px; align-items: center; justify-content: flex-start;}
 .prd-select label {cursor: pointer;}

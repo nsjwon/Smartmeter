@@ -312,3 +312,5 @@ textarea::-webkit-scrollbar {width: 1em;}
 textarea::-webkit-scrollbar-track {background: #ddd; border-radius: 1rem;}
 textarea::-webkit-scrollbar-thumb {background-color: #bababa; border-radius: 1rem;}
 
+/* Plugins */
+.apexcharts-text, .apexcharts-title-text, .apexcharts-legend-text, .apexcharts-xaxis-title, .apexcharts-yaxis-label {font-family: 'Pretendard','Noto Sans KR','Apple SD Gothic Neo','맑은 고딕','Malgun Gothic','돋움','Dotum','굴림','Gulim','AppleGothic','Sans-serif' !important; color: #343a40 !important;}
