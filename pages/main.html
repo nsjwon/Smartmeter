@@ -203,51 +203,50 @@
 
     <script>
         var mapOptions = {
-            center: new naver.maps.LatLng(37.3595704, 127.105399),
+            center: new naver.maps.LatLng(34.6045664, 127.2699737),
             zoom: 10
         };
         
+        var marker = new naver.maps.Marker({
+            position: new naver.maps.LatLng(34.6045664, 127.2699737),
+            map: map
+        });
+
         var map = new naver.maps.Map('map', mapOptions);
 
-        const mapRef = useRef<naver.maps.Map | null>(null);
-
-        useEffect(() => {
-        if (currentMyLocation.lat !== 0 && currentMyLocation.lng !== 0) {
-            // 현재 내 위치를 중심으로 하는 지도 생성
-            mapRef.current = new naver.maps.Map("map", {
-            center: new naver.maps.LatLng(currentMyLocation.lat, currentMyLocation.lng),
-            zoom: 15,
-            minZoom: 10,
-            zoomControl: true,
-            mapTypeControl: true,
-            zoomControlOptions: {
-                position: naver.maps.Position.TOP_RIGHT,
-            },
-            logoControl: false,
-            mapDataControl: false,
-            });
-
-            // 현재 내 위치 마커 표시
-            new naver.maps.Marker({
-            // 생성될 마커의 위치
-            position: new naver.maps.LatLng(currentMyLocation.lat, currentMyLocation.lng),
-            // 마커를 표시할 Map 객체
-            map: mapRef.current,
-            // 마커의 모양
-            icon: {
-                url: `${myMarker}`,
-                size: new naver.maps.Size(43, 43),
-                scaledSize: new naver.maps.Size(43, 43),
-            },
-            // 마커의 쌓임 순서
-            zIndex: 999,
-            });
-        }
-        }, [currentMyLocation, setIsMapLoading]);
+        // const mapRef = useRef<naver.maps.Map | null>(null);
 
 
+        $(document).ready(function () {         
+            var options = {
+                series: [{
+                    data: [400, 430, 448, 470, 540, 580, 690, 1100, 1200, 1380]
+                }],
+                    chart: {
+                    type: 'bar',
+                    height: 350
+                },
+                    plotOptions: {
+                    bar: {
+                        borderRadius: 4,
+                        borderRadiusApplication: 'end',
+                        horizontal: true,
+                    }
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                xaxis: {
+                    categories: ['South Korea', 'Canada', 'United Kingdom', 'Netherlands', 'Italy', 'France', 'Japan',
+                        'United States', 'China', 'Germany'
+                    ],
+                }
+            };
 
-        $(document).ready(function () {            
+            var chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+        
+            
             //월말인원 Chart Start
             new ApexCharts($("#PeopleChart")[0], {
                 series: [{
