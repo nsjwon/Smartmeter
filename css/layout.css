@@ -9,8 +9,8 @@ Version : v1.0
 body {position: relative; background: #fff;}
 
 /* 본문 바로가기 */
-#skipNav{position:relative;z-index:9999;}
-#skipNav a{position: absolute; top: -200px; left:0;width: 100%; line-height: 30px; background-color: #000; color:#fff; text-align:center;}
+#skipNav{position:relative; z-index:9999;}
+#skipNav a{position: absolute; top: -200px; left:0; width: 100%; line-height: 30px; background-color: #000; color:#fff; text-align:center;}
 #skipNav a:focus, 
 #skipNav a:active{top: 0;}
 

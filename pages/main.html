@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="../css/mainStyle.css">
     <script src="../js/jquery-3.6.3.min.js"></script>
     <script src="../js/common.js"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
     <title>원격검침시스템</title>
 </head>
 <body>
@@ -92,7 +94,265 @@
         </div>
         <main id="main-wrap">
             <h2 class="main-title">DASHBOARD</h2>
+            <div class="main-content-wrap">
+                <div class="main-content-left">
+                    <div class="left-cont-01">
+                        <a class="stat-01">
+                            <span>수용가</span>
+                            <p>25,534</p>
+                        </a>
+                        <a class="stat-02">
+                            <span>계량기</span>
+                            <p>38,275</p>
+                        </a>
+                        <a class="stat-03">
+                            <span>원격검침</span>
+                            <p>25,534</p>
+                        </a>
+                    </div>
+                    <div class="left-cont-02">
+                        <div class="map-header">
+                            <h4 class="main-sub-title">지도현황</h4>
+                            <div class="map-select">
+                                <label class="mr10"><input type="radio" name="mapOt" id="mapOt1" checked><span>전체</span></label>
+                                <label><input type="radio" name="mapOt" id="mapOt2"><span>수용가</span></label>
+                                <label><input type="radio" name="mapOt" id="mapOt3"><span>계량기</span></label>
+                                <label><input type="radio" name="mapOt" id="mapOt4"><span>원격검침</span></label>
+                            </div>
+                        </div>
+                        <div class="map-body" id="map">
+                        </div>
+                        <div class="map-info">
+                            <span>계량기정보</span>
+                            <div class="map-info-title">
+                                <strong>고흥읍 성촌2길 16</strong>
+                                <span>사용</span>
+                            </div>
+                            <ul class="map-info-text">
+                                <li><span>수용가 번호:</span><em>001-020-000100-00-0</em></li>
+                                <li><span>수용가명:</span><em>마을회관</em></li>
+                                <li><span>계량기 번호:</span><em>22-118553</em></li>
+                                <li><span>계량기 종류:</span><em>직독식</em></li>
+                                <li><span>계량기 형식:</span><em>습식</em></li>
+                                <li><span>구경명:</span><em>13mm</em></li>
+                                <li><span>설치일자:</span><em>2021-07-22</em></li>
+                                <li><span>자가검침:</span><em>사용</em></li>
+                                <li><span>위치정보:</span><em>있음</em></li>
+                            </ul>
+                            <a href="#none" class="detail-link">상세 정보</a>
+                        </div>
+                    </div>
+                    <!-- 공지사항 컨텐츠가 없는 경우 해당 영역 삭제:s -->
+                    <div class="left-cont-03">
+                        <h4 class="main-sub-title">공지사항</h4>
+                        <a href="#none" class="main-notice">
+                            <h6 class="main-notice-title">업데이트 (Ver.2) 안내</h6>
+                            <p class="main-notice-text over2lines">어플 버전이 Ver.2 버전으로 업데이트 되었습니다 . 어플을 종료 후 재접속을 하시면 업데이트 진행 하실수 있습니다.
+                                <br>- 인정조정에 따라 금월사용량을 직접입력 할수 있도록 수정 - 해당 인정조정코드 (인정, 교체, 회전) - 금월사용량이 마이너스(-)인 경우
+                            </p>
+                            <span class="main-notice-date">2024-01-31</span>
+                        </a>
+                        <a href="#none" class="more-view"></a>
+                    </div>
+                    <!-- 공지사항 컨텐츠가 없는 경우 해당 영역 삭제:e -->
+                </div>
+                <div class="main-content-right">
+                    <div class="right-cont">
+                        <div class="rc-header">
+                            <h4 class="main-sub-title">검침현황통계</h4>
+                            <div class="month-select">
+                                <select>
+                                    <option value="1월">1월</option>
+                                    <option value="2월">2월</option>
+                                    <option value="3월">3월</option>
+                                    <option value="4월">4월</option>
+                                    <option value="5월">5월</option>
+                                    <option value="6월">6월</option>
+                                    <option value="7월">7월</option>
+                                    <option value="8월">8월</option>
+                                    <option value="9월">9월</option>
+                                    <option value="10월">10월</option>
+                                    <option value="11월">11월</option>
+                                    <option value="12월">12월</option>
+                                </select>
+                                <span class="ic_arrow"></span>
+                            </div>
+                        </div>
+                        <div class="rc-body" id="chart">
+
+                        </div>
+                        <a href="#none" class="more-view"></a>
+                    </div>
+                    <div class="right-cont">
+                        <div class="rc-header">
+                            <h4 class="main-sub-title">사용량통계</h4>
+                            <div class="prd-select">
+                                <label><input type="radio" name="prdOt" id="prd1" checked><span>월별</span></label>
+                                <label><input type="radio" name="prdOt" id="prd2"><span>년별</span></label>
+                            </div>
+                        </div>
+                        <div class="rc-body" id="PeopleChart">
+                            
+                        </div>
+                        <a href="#none" class="more-view"></a>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
+
+    <script>
+        var mapOptions = {
+            center: new naver.maps.LatLng(37.3595704, 127.105399),
+            zoom: 10
+        };
+        
+        var map = new naver.maps.Map('map', mapOptions);
+
+        const mapRef = useRef<naver.maps.Map | null>(null);
+
+        useEffect(() => {
+        if (currentMyLocation.lat !== 0 && currentMyLocation.lng !== 0) {
+            // 현재 내 위치를 중심으로 하는 지도 생성
+            mapRef.current = new naver.maps.Map("map", {
+            center: new naver.maps.LatLng(currentMyLocation.lat, currentMyLocation.lng),
+            zoom: 15,
+            minZoom: 10,
+            zoomControl: true,
+            mapTypeControl: true,
+            zoomControlOptions: {
+                position: naver.maps.Position.TOP_RIGHT,
+            },
+            logoControl: false,
+            mapDataControl: false,
+            });
+
+            // 현재 내 위치 마커 표시
+            new naver.maps.Marker({
+            // 생성될 마커의 위치
+            position: new naver.maps.LatLng(currentMyLocation.lat, currentMyLocation.lng),
+            // 마커를 표시할 Map 객체
+            map: mapRef.current,
+            // 마커의 모양
+            icon: {
+                url: `${myMarker}`,
+                size: new naver.maps.Size(43, 43),
+                scaledSize: new naver.maps.Size(43, 43),
+            },
+            // 마커의 쌓임 순서
+            zIndex: 999,
+            });
+        }
+        }, [currentMyLocation, setIsMapLoading]);
+
+
+
+        $(document).ready(function () {            
+            //월말인원 Chart Start
+            new ApexCharts($("#PeopleChart")[0], {
+                series: [{
+                    name: '월말인원',
+                    data: [
+                        6, 1, 6, 3, 18, 9, 5, 10, 2, 4, 3, 18
+                    ]
+                }],
+                chart: {
+                    type: 'area',
+                    height: 350,
+                    zoom: {
+                        enabled: false
+                    }
+                },
+                dataLabels: {
+                    enabled: true
+                },
+                stroke: {
+                    curve: 'straight'
+                },
+                xaxis: {
+                    categories: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+                },
+                legend: {
+                    horizontalAlign: 'left'
+                }
+            }).render();
+            //월말인원 Chart End
+            
+            //월별제안건수 차트 Start
+            new ApexCharts($("#NumberChart")[0], {
+                series: [{
+                    name: "제안건수",
+                    data: [28, 29, 33, 36, 32, 32, 33, 32, 33, 29, 33, 36]
+                }],
+                chart: {
+                    height: 350,
+                    type: 'line',
+                    zoom: {
+                        enabled: false
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                },
+                stroke: {
+                    curve: 'smooth'
+                },
+                grid: {
+                    // padding: 40,
+                    row: {
+                    opacity: 1
+                    },
+                },
+                xaxis: {
+                    categories: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+                }
+            }).render();
+            //월별제안건수 차트 End
+            
+            //월별검토결과 차트 Start
+            new ApexCharts($("#ResultChart")[0], {
+                series: [{
+                    name: '채택',
+                    data: [24, 35, 17, 46, 36, 58, 22, 61, 13, 35, 17, 46]
+                }, {
+                    name: '미채택',
+                    data: [16, 18, 29, 21, 27, 35, 9, 33, 25, 18, 29, 21]
+                }],
+                chart: {
+                    type: 'bar',
+                    height: 360
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: false,
+                        columnWidth: '55%',
+                        endingShape: 'rounded'
+                    },
+                },
+                dataLabels: {
+                    enabled: false
+                },
+                stroke: {
+                    show: true,
+                    width: 2,
+                    colors: ['transparent']
+                },
+                xaxis: {
+                    categories: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
+                },
+                fill: {
+                    opacity: 1
+                },
+                tooltip: {
+                    y: {
+                        formatter: function (val) {
+                            return val + " 건"
+                        }
+                    }
+                }
+            }).render();
+        //월별검토결과 차트 End
+        });
+    </script>
 </body>
 </html>
