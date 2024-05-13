@@ -87,7 +87,7 @@ Version : v1.0
 .left-cont-02 .map-select #mapOt3 + span:after {position: absolute; display: block; content: ''; background: url(../images/main/marker02-s.svg) no-repeat; background-size: cover; width: 24px; height: 24px; left: 12px; top: 5px;}
 .left-cont-02 .map-select #mapOt4 + span:after {position: absolute; display: block; content: ''; background: url(../images/main/marker03-s.svg) no-repeat; background-size: cover; width: 24px; height: 24px; left: 12px; top: 5px;}
 .map-body {position: relative; margin: 0 10px 10px; background: #f8f8f8; height: 100%; overflow-y: auto;}
-.map-info {width: 334px; position: absolute; display: flex; flex-direction: column; bottom: 0; right: 0; margin: 20px; background: #fff; border-radius: 8px; padding: 30px; filter: drop-shadow(0 4px 20px rgba(62, 64, 72, 15%));}
+.map-info {z-index: 10; width: 334px; position: absolute; display: flex; flex-direction: column; bottom: 0; right: 0; margin: 20px; background: #fff; border-radius: 8px; padding: 30px; filter: drop-shadow(0 4px 20px rgba(62, 64, 72, 15%));}
 .map-info>span {color: #51C59A; font-size: 13px; font-weight: 500;}
 .map-info-title {display: flex; justify-content: space-between; align-items: center;}
 .map-info-title strong {font-size: 16px; font-weight: 600;}
