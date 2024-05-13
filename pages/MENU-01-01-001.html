@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/mainStyle.css">
+    <link rel="stylesheet" href="../css/subStyle.css">
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
+    <title>원격검침시스템 - 수용가리스트</title>
+    <script>
+        function fn_pageMove(url) {
+            window.location.href = "./MENU-01-01-002.html";
+        }
+    </script>
+</head>
+<body>
+    <!-- 반복영역 건너뛰기 -->
+    <div id="skipNav">
+        <a href="#main">본문 바로가기</a>
+    </div>
+    <!-- //반복영역 건너뛰기 -->
+    <div id="wrap">
+        <div id="left-menu">
+            <h1 id="logo"><a href="./main.html"><img src="../images/main/main_logo.svg" alt="원격검침시스템"></a></h1>
+            <nav id="gnb">
+                <ul class="one-depth">
+                    <li class="d1">
+                        <a href="#none"><span>수용가관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">수용가리스트</a></li>
+                            <li><a href="">수용가등록</a></li>
+                            <li><a href="">수용가등록(엑셀업로드)</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>계량기관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">계량기리스트</a></li>
+                            <li><a href="">계량기등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>검침구역그룹관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">검침구역그룹리스트</a></li>
+                            <li><a href="">검침구역그룹등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>검침구역관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">검침구역리스트</a></li>
+                            <li><a href="">검침구역등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>사용자관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">사용자리스트</a></li>
+                            <li><a href="">사용자등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>검침정보관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">검침정보리스트</a></li>
+                            <li><a href="">검침정보등록</a></li>
+                            <li><a href="">검침정보등록(엑셀업로드)</a></li>
+                            <li><a href="">검침정보다운로드(DAT)</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>공통관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">공통코드리스트</a></li>
+                            <li><a href="">환경관리</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>통계</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">사용량통계</a></li>
+                            <li><a href="">검침현황통계</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>공지사항</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">공지사항</a></li>
+                            <li><a href="">공지사항등록</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <main id="sub-wrap">
+            <div class="sub-inner-wrap">
+                <ul class="menu-nav mb40">
+                    <li><img src="../images/board/ic_home.svg" alt="home"></li>
+                    <li><img src="../images/board/ic_depth.svg" alt="depth"></li>
+                    <li>수용가관리</li>
+                    <li><img src="../images/board/ic_depth.svg" alt="depth"></li>
+                    <li>수용가리스트</li>
+                </ul>
+                <div class="sub-title-wrap pl10">
+                    <h2>수용가리스트</h2>
+                </div>
+                <!-- board wrap :s-->
+                <div class="brd-wrap">
+                    <!-- board search :s -->
+                    <div class="brd-search mb30"> 
+                        <div class="brd-search-form">
+                            <div class="search-select">
+                                <p>업종구분</p>
+                                <label for="type" class="hide">구분</label>
+                                <select name="type">
+                                    <option>전체</option>
+                                    <option>가정용</option>
+                                    <option>상업용</option>
+                                    <option>농축산용</option>
+                                    <option>공업용</option>
+                                    <option>일반</option>
+                                    <option>기타</option>
+                                </select>
+                            </div>
+                            <div class="search-select">
+                                <p>위치구분</p>
+                                <label for="type1" class="hide">구분</label>
+                                <select name="type1">
+                                    <option>전체</option>
+                                    <option>있음</option>
+                                    <option>없음</option>
+                                </select>
+                            </div>
+                            <div class="search-select">
+                                <p>자가검침</p>
+                                <label for="type2" class="hide">구분</label>
+                                <select name="type2">
+                                    <option>전체</option>
+                                    <option>사용</option>
+                                    <option>미사용</option>
+                                </select>
+                            </div>
+                            <div class="search-select">
+                                <p>사용여부</p>
+                                <label for="type3" class="hide">구분</label>
+                                <select name="type3">
+                                    <option>전체</option>
+                                    <option>사용</option>
+                                    <option>미사용</option>
+                                </select>
+                            </div>
+                            <div class="search-text">
+                                <p>검색어</p>
+                                <input type="text" name="searchField" placeholder="검색어를 입력하세요.">
+                            </div>
+                        </div>
+                        <div class="brd-search-btn">
+                            <input type="button" class="btn-search" value="조회">
+                            <input type="button" class="btn-reset" value="초기화">
+                        </div>
+                    </div>
+                    <!-- board search :e -->
+                    
+                    <!-- board info : s-->
+                    <div class="brd-info">
+                        <ul class="brd-num">
+                            <li><span>전체 </span><em>112</em>건</li>
+                            <li><span>현재 페이지 </span><em>1/14</em></li>
+                        </ul>
+                        <div class="brd-btn-wrap">
+                            <input type="button" value="추가" class="btn-blueline">
+                            <input type="button" value="삭제" class="btn-redline">
+                            <button class="btn-excel">EXCEL</button>
+                        </div>
+                    </div>                               
+                    <!-- board info : e-->
+
+                    <!-- board table :s -->
+                    <div class="brd-table-wrap">
+                        <table class="brd-table">
+                            <caption>수용가 리스트</caption>
+                            <colgroup>
+                                <col style="width: 50px;">
+                                <col style="width: 50px;">
+                                <col style="width: 160px;">
+                                <col style="width: 80px;">
+                                <col style="width: 80px;">
+                                <col style="width: 120px;">
+                                <col style="width: 220px;">
+                                <col style="width: 100px;">
+                                <col style="width: 80px;">
+                                <col style="width: 80px;">
+
+                                <col style="width: 80px;">
+                                <col style="width: 100px;">
+                                <col style="width: 80px;">
+                                <col style="width: 50px;">
+                                <col style="width: 50px;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" disabled></th>
+                                    <th>순번</th>
+                                    <th>수용가번호</th>
+                                    <th>상수업종</th>
+                                    <th>수용가명</th>
+                                    <th>전화번호</th>
+                                    <th>주소</th>
+                                    <th>계량기번호</th>
+                                    <th>구경명</th>
+                                    <th>자가검침</th>
+                                    
+                                    <th>위치정보</th>
+                                    <th>등록일</th>
+                                    <th>사용여부</th>
+                                    <th>수정</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" name="list-chk"></td>
+                                    <td>1</td>
+                                    <td>001-030-000200-00-0</td>
+                                    <td>가정용</td>
+                                    <td>홍길동</td>
+                                    <td>010-1234-5678</td>
+                                    <td>고흥읍 성촌2길 16</td>
+                                    <td>22-118553</td>
+                                    <td>13mm</td>
+                                    <td>사용</td>
+                                    
+                                    <td>있음</td>
+                                    <td>2016/06/16</td>
+                                    <td>사용</td>
+                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="#none" class="btn-listdel"></a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="list-chk"></td>
+                                    <td>2</td>
+                                    <td>001-030-000300-00-0</td>
+                                    <td>가정용</td>
+                                    <td>홍길동</td>
+                                    <td>010-1234-5678</td>
+                                    <td>고흥읍 성촌2길 18</td>
+                                    <td>22-118553</td>
+                                    <td>13mm</td>
+                                    <td>사용</td>
+                                    
+                                    <td>있음</td>
+                                    <td>2016/06/16</td>
+                                    <td>사용</td>
+                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="#none" class="btn-listdel"></a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="list-chk"></td>
+                                    <td>3</td>
+                                    <td>001-030-000400-00-0</td>
+                                    <td>가정용</td>
+                                    <td>홍길동</td>
+                                    <td>010-1234-5678</td>
+                                    <td>고흥읍 성촌2길 20</td>
+                                    <td>22-118553</td>
+                                    <td>13mm</td>
+                                    <td>사용</td>
+                                    
+                                    <td>있음</td>
+                                    <td>2016/06/16</td>
+                                    <td>사용</td>
+                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="#none" class="btn-listdel"></a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="list-chk"></td>
+                                    <td>4</td>
+                                    <td>001-030-000500-00-0</td>
+                                    <td>가정용</td>
+                                    <td>홍길동</td>
+                                    <td>010-1234-5678</td>
+                                    <td>고흥읍 성촌2길 26-4</td>
+                                    <td>22-118553</td>
+                                    <td>13mm</td>
+                                    <td>사용</td>
+                                    
+                                    <td>있음</td>
+                                    <td>2016/06/16</td>
+                                    <td>사용</td>
+                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="#none" class="btn-listdel"></a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="list-chk"></td>
+                                    <td>5</td>
+                                    <td>001-030-000600-00-0</td>
+                                    <td>가정용</td>
+                                    <td>홍길동</td>
+                                    <td>010-1234-5678</td>
+                                    <td>고흥읍 성촌2길 31</td>
+                                    <td>22-118553</td>
+                                    <td>13mm</td>
+                                    <td>사용</td>
+                                    
+                                    <td>있음</td>
+                                    <td>2016/06/16</td>
+                                    <td>사용</td>
+                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="#none" class="btn-listdel"></a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="list-chk"></td>
+                                    <td>6</td>
+                                    <td>001-030-000700-00-0</td>
+                                    <td>가정용</td>
+                                    <td>홍길동</td>
+                                    <td>010-1234-5678</td>
+                                    <td>고흥읍 성촌2길 36</td>
+                                    <td>22-118553</td>
+                                    <td>13mm</td>
+                                    <td>사용</td>
+                                    
+                                    <td>있음</td>
+                                    <td>2016/06/16</td>
+                                    <td>사용</td>
+                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="#none" class="btn-listdel"></a></td>
+                                </tr>
+                                <!-- 게시글이 없을때 :s  -->
+                                <!-- <tr> 
+                                    <td colspan="15">등록된 게시글이 없습니다.</td>
+                                </tr> -->
+                                <!-- 게시글이 없을때 :e  -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- board table :e -->
+
+                    
+                    <!-- pagination:s -->
+                    <div class="pagination">       
+                        <span class="prev-group">
+                            <a class="page-first" href="#none" onclick="" onkeypress=""><span class="hide">처음 페이지로 이동</span></a>
+                            <a class="page-prev" href="#none" onclick="" onkeypress=""><span class="hide">이전 페이지로 이동</span></a>
+                        </span>
+                        <a class="on" href="#none" onclick="" onkeypress="">1</a><a href="#none" onclick="" onkeypress="">2</a><a href="#none" onclick="" onkeypress="">3</a><a href="#none" onclick="" onkeypress="">4</a><a href="#none" onclick="" onkeypress="">5</a>
+                        <span class="next-group">
+                            <a class="page-next" href="#none" onclick="" onkeypress=""><span class="hide">다음 페이지로 이동</span></a>
+                            <a class="page-end" href="#none" onclick="" onkeypress=""><span class="hide">마지막 페이지로 이동</span></a>
+                        </span>                
+                    </div>                  
+                    <!-- pagination:e -->   
+                </div>
+                <!-- board wrap :e-->
+            </div>
+        </main>
+    </div>
+</body>
+</html>

@@ -26,7 +26,7 @@
                     <li class="d1">
                         <a href="#none"><span>수용가관리</span></a>
                         <ul class="two-depth">
-                            <li><a href="">수용가리스트</a></li>
+                            <li><a href="MENU-01-01-001.html">수용가리스트</a></li>
                             <li><a href="">수용가등록</a></li>
                             <li><a href="">수용가등록(엑셀업로드)</a></li>
                         </ul>
@@ -97,7 +97,7 @@
             <div class="main-content-wrap">
                 <div class="main-content-left">
                     <div class="left-cont-01">
-                        <a class="stat-01">
+                        <a class="stat-01" href="./MENU-01-01-001.html">
                             <span>수용가</span>
                             <p>25,534</p>
                         </a>
@@ -121,25 +121,25 @@
                             </div>
                         </div>
                         <div class="map-body" id="map">
-                        </div>
-                        <div class="map-info">
-                            <span>계량기정보</span>
-                            <div class="map-info-title">
-                                <strong>고흥읍 성촌2길 16</strong>
-                                <span>사용</span>
+                            <div class="map-info">
+                                <span>계량기정보</span>
+                                <div class="map-info-title">
+                                    <strong>고흥읍 성촌2길 16</strong>
+                                    <span>사용</span>
+                                </div>
+                                <ul class="map-info-text">
+                                    <li><span>수용가 번호:</span><em>001-020-000100-00-0</em></li>
+                                    <li><span>수용가명:</span><em>마을회관</em></li>
+                                    <li><span>계량기 번호:</span><em>22-118553</em></li>
+                                    <li><span>계량기 종류:</span><em>직독식</em></li>
+                                    <li><span>계량기 형식:</span><em>습식</em></li>
+                                    <li><span>구경명:</span><em>13mm</em></li>
+                                    <li><span>설치일자:</span><em>2021-07-22</em></li>
+                                    <li><span>자가검침:</span><em>사용</em></li>
+                                    <li><span>위치정보:</span><em>있음</em></li>
+                                </ul>
+                                <a href="#none" class="detail-link">상세 정보</a>
                             </div>
-                            <ul class="map-info-text">
-                                <li><span>수용가 번호:</span><em>001-020-000100-00-0</em></li>
-                                <li><span>수용가명:</span><em>마을회관</em></li>
-                                <li><span>계량기 번호:</span><em>22-118553</em></li>
-                                <li><span>계량기 종류:</span><em>직독식</em></li>
-                                <li><span>계량기 형식:</span><em>습식</em></li>
-                                <li><span>구경명:</span><em>13mm</em></li>
-                                <li><span>설치일자:</span><em>2021-07-22</em></li>
-                                <li><span>자가검침:</span><em>사용</em></li>
-                                <li><span>위치정보:</span><em>있음</em></li>
-                            </ul>
-                            <a href="#none" class="detail-link">상세 정보</a>
                         </div>
                     </div>
                     <!-- 공지사항 컨텐츠가 없는 경우 해당 영역 삭제:s -->
@@ -216,7 +216,7 @@
 
         // const mapRef = useRef<naver.maps.Map | null>(null);
 
-
+        // 검침현황통계 Chart Start
         $(document).ready(function () {         
             new ApexCharts($("#RateChart")[0], {
                 series: [{
@@ -257,14 +257,15 @@
                     show: true
                 }
             }).render();
+            // 검침현황통계 Chart End
         
             
-            //월말인원 Chart Start
+            //사용량통계 Chart Start
             new ApexCharts($("#PeopleChart")[0], {
                 series: [{
-                    name: '월말인원',
+                    name: '사용량',
                     data: [
-                        6, 1, 6, 3, 18, 9, 5, 10, 2, 4, 3, 18
+                        349041, 377759, 325686, 347017, 351697, 378830, 388733, 461412, 423437, 407766, 371873, 362509
                     ]
                 }],
                 chart: {
@@ -273,9 +274,24 @@
                     zoom: {
                         enabled: false
                     }
+                }, 
+                plotOptions : {
+                    bar : {
+                        horizontal : true
+                        , dataLabels : {
+                            hideOverflowingLabels : false // bar 간격이 좁아서 data가 보이지 않을 때
+                        }
+                    }
                 },
                 dataLabels: {
-                    enabled: true
+                    enabled: true,
+                    formatter : function(val) {
+                        if (parseInt(val) >= 1000) {
+                            return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 천단위 콤마
+                        } else {
+                            return val.toFixed(0).toString();
+                        }
+                    }
                 },
                 stroke: {
                     curve: 'straight'
@@ -283,86 +299,23 @@
                 xaxis: {
                     categories: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
                 },
+                tooltip: {
+                    x: {
+                        formatter: function (val) {
+                            if (val >= 1000) {
+                                val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "," + "월 사용량"); // 천단위 콤마
+                            } else {
+                                return val + "월 사용량"
+                            }
+                        }
+                    }
+                },
                 legend: {
                     horizontalAlign: 'left'
                 }
             }).render();
-            //월말인원 Chart End
+            //사용량통계 Chart End
             
-            //월별제안건수 차트 Start
-            new ApexCharts($("#NumberChart")[0], {
-                series: [{
-                    name: "제안건수",
-                    data: [28, 29, 33, 36, 32, 32, 33, 32, 33, 29, 33, 36]
-                }],
-                chart: {
-                    height: 350,
-                    type: 'line',
-                    zoom: {
-                        enabled: false
-                    }
-                },
-                dataLabels: {
-                    enabled: true,
-                },
-                stroke: {
-                    curve: 'smooth'
-                },
-                grid: {
-                    // padding: 40,
-                    row: {
-                    opacity: 1
-                    },
-                },
-                xaxis: {
-                    categories: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-                }
-            }).render();
-            //월별제안건수 차트 End
-            
-            //월별검토결과 차트 Start
-            new ApexCharts($("#ResultChart")[0], {
-                series: [{
-                    name: '채택',
-                    data: [24, 35, 17, 46, 36, 58, 22, 61, 13, 35, 17, 46]
-                }, {
-                    name: '미채택',
-                    data: [16, 18, 29, 21, 27, 35, 9, 33, 25, 18, 29, 21]
-                }],
-                chart: {
-                    type: 'bar',
-                    height: 360
-                },
-                plotOptions: {
-                    bar: {
-                        horizontal: false,
-                        columnWidth: '55%',
-                        endingShape: 'rounded'
-                    },
-                },
-                dataLabels: {
-                    enabled: false
-                },
-                stroke: {
-                    show: true,
-                    width: 2,
-                    colors: ['transparent']
-                },
-                xaxis: {
-                    categories: ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-                },
-                fill: {
-                    opacity: 1
-                },
-                tooltip: {
-                    y: {
-                        formatter: function (val) {
-                            return val + " 건"
-                        }
-                    }
-                }
-            }).render();
-        //월별검토결과 차트 End
         });
     </script>
 </body>

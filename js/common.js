@@ -148,3 +148,27 @@ $(document).ready(function() {
     }
 
 });
+
+
+$(document).ready(function(){
+    // tbody의 각 행(tr) 클릭 이벤트
+    $('tbody tr').click(function(){
+        // 첫 번째 td 안의 체크박스
+        var checkbox = $(this).find('td:first-child input[type="checkbox"]');
+        // 체크박스가 이미 체크되어 있는지 확인
+        var isChecked = checkbox.prop('checked');
+        // 이미 체크되어 있다면 checked 속성 삭제
+        if(isChecked){
+            checkbox.prop('checked', false);
+        } else { // 아니라면 checked 속성 추가
+            checkbox.prop('checked', true);
+        }
+    });
+
+    // tbody의 각 행(tr) 더블클릭 이벤트
+    $('tbody tr').dblclick(function(){
+        // pagemove() 함수 실행
+        fn_pageMove();
+    });
+    
+});
