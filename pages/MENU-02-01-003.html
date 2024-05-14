@@ -11,7 +11,7 @@
     <script src="../js/common.js"></script>
     <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
-    <title>원격검침시스템 - 수용가등록</title>
+    <title>원격검침시스템 - 수용가정보 수정</title>
 </head>
 <body>
     <!-- 반복영역 건너뛰기 -->
@@ -27,8 +27,8 @@
                     <li class="d1">
                         <a href="#none"><span>수용가관리</span></a>
                         <ul class="two-depth">
-                            <li><a href="./MENU-01-01-001.html">수용가리스트</a></li>
-                            <li><a href="./MENU-01-01-004.html">수용가등록</a></li>
+                            <li><a href="./MENU-02-01-001.html">수용가리스트</a></li>
+                            <li><a href="./MENU-02-01-004.html">수용가등록</a></li>
                             <li><a href="">수용가등록(엑셀업로드)</a></li>
                         </ul>
                     </li>
@@ -79,8 +79,8 @@
                     <li class="d1">
                         <a href="#none"><span>통계</span></a>
                         <ul class="two-depth">
-                            <li><a href="">사용량통계</a></li>
-                            <li><a href="">검침현황통계</a></li>
+                            <li><a href="./MENU-09-01-001.html">사용량통계</a></li>
+                            <li><a href="./MENU-09-02-001.html">검침현황통계</a></li>
                         </ul>
                     </li>
                     <li class="d1">
@@ -101,15 +101,15 @@
                     <li><img src="../images/board/ic_depth.svg" alt="depth"></li>
                     <li>수용가관리</li>
                     <li><img src="../images/board/ic_depth.svg" alt="depth"></li>
-                    <li>수용가등록</li>
+                    <li>수용가리스트</li>
                 </ul>
                 <!-- 페이지 네비게이션:e -->
 
                 <!-- 상세페이지 타이틀:s -->
                 <div class="sub-title-wrap btn-type">
-                    <h2>수용가등록</h2>
+                    <h2>수용가정보</h2>
                     <div class="brd-btn-wrap">
-                        <input type="button" value="등록" class="btn-blue" id="registBtn">
+                        <input type="button" value="수정" class="btn-blue" id="editBtn">
                         <!-- <input type="button" value="삭제" class="btn-redline"> -->
                         <input type="button" value="닫기" class="btn-gray" onclick="history.back()">
                     </div>
@@ -135,12 +135,12 @@
                                     <th scope="row">수용가번호</th>
                                     <td>
                                         <div class="input-type-row">
-                                            <input type="text" value="">
+                                            <input type="text" value="001030001100000">
                                             <input type="button" value="중복확인" class="btn-darkgray">
                                         </div>
                                     </td>
                                     <th scope="row">명칭</th>
-                                    <td><input type="text" value=""></td>
+                                    <td><input type="text" value="홍길동"></td>
                                 </tr>
                                 <tr class="longtxt">
                                     <th scope="row">상수업종</th>
@@ -159,22 +159,22 @@
                                 <tr>
                                     <th scope="row">전화번호</th>
                                     <td>
-                                        <input type="text" value="">
+                                        <input type="text" value="063-123-4567">
                                     </td>
                                     <th scope="row">핸드폰</th>
-                                    <td><input type="text" value=""></td>
+                                    <td><input type="text" value="010-1234-5678"></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">주소</th>
                                     <td colspan="3">
                                         <div class="input-type-col">
                                             <div class="btn-wrap">
-                                                <input type="text" value="" class="m-size">
+                                                <input type="text" value="54230" class="m-size">
                                                 <input type="button" value="우편번호" class="btn-searchadr">
                                             </div>
                                             <div class="input-type-row">
-                                                <input type="text" value="">
-                                                <input type="text" value="">
+                                                <input type="text" value="전라남도 고흥군 고흥읍">
+                                                <input type="text" value="성촌2길 62">
                                             </div>
                                         </div>
                                     </td>
@@ -183,13 +183,13 @@
                                     <th scope="row">위치</th>
                                     <td>
                                         <div class="input-type-row">
-                                            X:<input type="text" value="">
-                                            Y:<input type="text" value="">
+                                            X:<input type="text" value="34.604557313398054">
+                                            Y:<input type="text" value="127.26952175360134">
                                             <input type="button" value="좌표얻기" class="btn-darkgray">
                                         </div>
                                     </td>
                                     <th scope="row">가구수</th>
-                                    <td><input type="text" value=""></td>
+                                    <td><input type="text" value="1"></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">자가검침여부</th>
@@ -214,13 +214,13 @@
                                     <td colspan="3" class="file-upload">
                                         <div class="flex-col">
                                             <div class="input-type-row">
-                                                <input type="text" value="" class="overtext" readonly="readonly">
+                                                <input type="text" value="타 기관 아이콘 예시.jpeg" class="overtext" readonly="readonly">
                                                 <label for="searchFileBtn" class="hide">파일찾기</label>
                                                 <input type="button" class="btn-darkgray" value="파일찾기" id="searchFileBtn">
                                             </div>
                                             <ul class="att-file">
-                                                <!-- <li>타 기관 전용 문서 예시.hwp<span>(283.52KB)</span><a href="#none" class="ml8"><img src="../images/board/ic_del-file.svg" alt=""></a></li>
-                                                <li>타 기관 아이콘 예시.jpeg<span>(630KB)</span><a href="#none" class="ml8"><img src="../images/board/ic_del-file.svg" alt=""></a></li> -->
+                                                <li>타 기관 전용 문서 예시.hwp<span>(283.52KB)</span><a href="#none" class="ml8"><img src="../images/board/ic_del-file.svg" alt=""></a></li>
+                                                <li>타 기관 아이콘 예시.jpeg<span>(630KB)</span><a href="#none" class="ml8"><img src="../images/board/ic_del-file.svg" alt=""></a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -236,7 +236,7 @@
     </div>
     <script>
         function fn_editconfirm() {
-            var result = confirm("등록하시겠습니까?");
+            var result = confirm("수정하시겠습니까?");
         
             if(!result){return false;}
         }

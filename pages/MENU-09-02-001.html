@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/mainStyle.css">
+    <link rel="stylesheet" href="../css/subStyle.css">
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
+    <title>원격검침시스템 - 검침현황통계</title>
+</head>
+<body>
+    <!-- 반복영역 건너뛰기 -->
+    <div id="skipNav">
+        <a href="#main">본문 바로가기</a>
+    </div>
+    <!-- //반복영역 건너뛰기 -->
+    <div id="wrap">
+        <div id="left-menu">
+            <h1 id="logo"><a href="./main.html"><img src="../images/main/main_logo.svg" alt="원격검침시스템"></a></h1>
+            <nav id="gnb">
+                <ul class="one-depth">
+                    <li class="d1">
+                        <a href="#none"><span>수용가관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="./MENU-02-01-001.html">수용가리스트</a></li>
+                            <li><a href="./MENU-02-01-004.html">수용가등록</a></li>
+                            <li><a href="">수용가등록(엑셀업로드)</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>계량기관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">계량기리스트</a></li>
+                            <li><a href="">계량기등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>검침구역그룹관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">검침구역그룹리스트</a></li>
+                            <li><a href="">검침구역그룹등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>검침구역관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">검침구역리스트</a></li>
+                            <li><a href="">검침구역등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>사용자관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">사용자리스트</a></li>
+                            <li><a href="">사용자등록</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>검침정보관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">검침정보리스트</a></li>
+                            <li><a href="">검침정보등록</a></li>
+                            <li><a href="">검침정보등록(엑셀업로드)</a></li>
+                            <li><a href="">검침정보다운로드(DAT)</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>공통관리</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">공통코드리스트</a></li>
+                            <li><a href="">환경관리</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>통계</span></a>
+                        <ul class="two-depth">
+                            <li><a href="./MENU-09-01-001.html">사용량통계</a></li>
+                            <li><a href="./MENU-09-02-001.html">검침현황통계</a></li>
+                        </ul>
+                    </li>
+                    <li class="d1">
+                        <a href="#none"><span>공지사항</span></a>
+                        <ul class="two-depth">
+                            <li><a href="">공지사항</a></li>
+                            <li><a href="">공지사항등록</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <main id="sub-wrap">
+            <div class="sub-inner-wrap">
+                <ul class="menu-nav mb40">
+                    <li><img src="../images/board/ic_home.svg" alt="home"></li>
+                    <li><img src="../images/board/ic_depth.svg" alt="depth"></li>
+                    <li>통계</li>
+                    <li><img src="../images/board/ic_depth.svg" alt="depth"></li>
+                    <li>검침현황통계</li>
+                </ul>
+                <div class="sub-title-wrap pl10">
+                    <h2>검침현황통계</h2>
+                </div>
+                <!-- board wrap :s-->
+                <div class="brd-wrap">
+                    <!-- board search :s -->
+                    <div class="brd-search mb30"> 
+                        <div class="brd-search-form">
+                            <div class="search-select">
+                                <p>검침년월</p>
+                                <label for="type" class="mr10">
+                                    <select name="type" class="s-size">
+                                        <option>2024년</option>
+                                        <option>2023년</option>
+                                        <option>2022년</option>
+                                        <option>2021년</option>
+                                        <option>2020년</option>
+                                    </select>
+                                </label>
+                                <label for="type">
+                                    <select name="type" class="s-size">
+                                        <option>5월</option>
+                                        <option>4월</option>
+                                        <option>3월</option>
+                                        <option>2월</option>
+                                        <option>1월</option>
+                                        <option>12월</option>
+                                        <option>11월</option>
+                                        <option>10월</option>
+                                        <option>9월</option>
+                                        <option>8월</option>
+                                        <option>7월</option>
+                                        <option>6월</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div class="search-text-flex">
+                                <p>검침구역명</p>
+                                <input type="text" name="searchField" class="mr10" placeholder="">
+                                <input type="button" value="검침구역검색" class="btn-location">
+                            </div>
+                            <div class="search-text">
+                                <p>검색어</p>
+                                <input type="text" name="searchField" placeholder="검색어를 입력하세요.">
+                            </div>
+                        </div>
+                        <div class="brd-search-btn">
+                            <input type="button" class="btn-search" value="조회">
+                            <input type="button" class="btn-reset" value="초기화">
+                        </div>
+                    </div>
+                    <!-- board search :e -->
+                    
+                    <!-- 검침현황통계:s -->
+                    <div class="content-block mb30">
+                        <div class="content-title">
+                            <h4>검침현황통계</h4>
+                        </div>
+                        <div class="content-boxline">
+                            <div id="RateChart"></div>
+                        </div>
+                    </div>
+                    <!-- 검침현황통계:e -->
+
+                    <!-- board info : s-->
+                    <div class="brd-info">
+                        <ul class="brd-num">
+                            <li><span>전체 </span><em>112</em>건</li>
+                            <li><span>현재 페이지 </span><em>1/14</em></li>
+                        </ul>
+                        <div class="brd-btn-wrap">
+                            <!-- <input type="button" value="추가" class="btn-blueline" onclick="location.href='./MENU-02-01-004.html'">
+                            <input type="button" value="삭제" class="btn-redline"> -->
+                            <button class="btn-excel">EXCEL</button>
+                        </div>
+                    </div>                               
+                    <!-- board info : e-->
+
+                    <!-- board table :s -->
+                    <div class="brd-table-wrap">
+                        <table class="brd-table">
+                            <caption>수용가 리스트</caption>
+                            <colgroup>
+                                <col style="width: 10%;">
+                                <col style="width: 30%;">
+                                <col style="width: 10%;">
+                                <col style="width: 10%;">
+                                <col style="width: 10%;">
+                                <col style="width: 10%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>순번</th>
+                                    <th>검침구역명</th>
+                                    <th>전체수용가(건)</th>
+                                    <th>완료(건)</th>
+                                    <th>미완료(건)</th>
+                                    <th>진행률(%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>고흥읍-001 (고흥읍-1,사업소)</td>
+                                    <td>1,093</td>
+                                    <td>501</td>
+                                    <td>592</td>
+                                    <td>45.8</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>고흥읍-003 (고흥읍-3)</td>
+                                    <td>1,150</td>
+                                    <td>300</td>
+                                    <td>850</td>
+                                    <td>26.1</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>도양읍-001 (도양읍-1)</td>
+                                    <td>800</td>
+                                    <td>75</td>
+                                    <td>726</td>
+                                    <td>9.3</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>도화면-001 (도화면-1)</td>
+                                    <td>701</td>
+                                    <td>0</td>
+                                    <td>701</td>
+                                    <td>0</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>포두면 (포두면-1)</td>
+                                    <td>1,274</td>
+                                    <td>311</td>
+                                    <td>963</td>
+                                    <td>24.4</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>영남면 (영남면-1)</td>
+                                    <td>811</td>
+                                    <td>146</td>
+                                    <td>665</td>
+                                    <td>18</td>
+                                </tr>
+                                <!-- 게시글이 없을때 :s  -->
+                                <!-- <tr> 
+                                    <td colspan="15">등록된 게시글이 없습니다.</td>
+                                </tr> -->
+                                <!-- 게시글이 없을때 :e  -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- board table :e -->
+                    
+                    <!-- pagination:s -->
+                    <div class="pagination">       
+                        <span class="prev-group">
+                            <a class="page-first" href="#none" onclick="" onkeypress=""><span class="hide">처음 페이지로 이동</span></a>
+                            <a class="page-prev" href="#none" onclick="" onkeypress=""><span class="hide">이전 페이지로 이동</span></a>
+                        </span>
+                        <a class="on" href="#none" onclick="" onkeypress="">1</a><a href="#none" onclick="" onkeypress="">2</a><a href="#none" onclick="" onkeypress="">3</a><a href="#none" onclick="" onkeypress="">4</a><a href="#none" onclick="" onkeypress="">5</a>
+                        <span class="next-group">
+                            <a class="page-next" href="#none" onclick="" onkeypress=""><span class="hide">다음 페이지로 이동</span></a>
+                            <a class="page-end" href="#none" onclick="" onkeypress=""><span class="hide">마지막 페이지로 이동</span></a>
+                        </span>                
+                    </div>                  
+                    <!-- pagination:e -->   
+                </div>
+                <!-- board wrap :e-->
+            </div>
+        </main>
+    </div>
+    <script>
+    // 검침현황통계 Chart Start
+    $(document).ready(function () {         
+        new ApexCharts($("#RateChart")[0], {
+            series: [{
+                name: '검침률',
+                data: [27, 62, 47, 28, 80, 100, 12, 54, 86, 33, 41, 26, 63]
+            }],
+            chart: {
+                type: 'bar',
+                height: 380, 
+                toolbar: {
+                    show: false,
+                }
+            },
+            plotOptions: {
+                bar: {
+                    borderRadius: 4,
+                    borderRadiusApplication: 'end',
+                    horizontal: false,
+                },
+            },
+            dataLabels: {
+                enabled: false
+            },
+            fill: {
+                opacity: 1,
+                colors: ['#5DCFA5']
+            },
+            xaxis: {
+                categories: ['포두면', '동일면', '점암면', '영남면', '과역면-001', '남양면', '대서면',
+                    '봉래면-001', '봉래면-002', '도양읍-001', '도양읍-002', '금산면-001', '금산면-002'
+                ]
+            },
+            tooltip: {
+                y: {
+                    formatter: function (val) {
+                        return val + "%"
+                    }
+                }
+            },
+            toolbar: {
+                show: true
+            }
+        }).render();
+    });
+    // 검침현황통계 Chart End
+    </script>
+</body>
+</html>

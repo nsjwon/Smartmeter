@@ -25,6 +25,8 @@ Version : v1.0
 .brd-search-form .search-text {width: 100%;}
 .brd-search-form .search-text input[type=text] {width: 450px; border: 1px solid #dde2e7;}
 .brd-search-form .search-text input[type=text]:focus {outline: #4763c2 2px solid;}
+.brd-search-form .search-text-flex {width: auto;}
+.brd-search-form .search-text-flex input[type=text] {border: 1px solid #dde2e7;}
 .brd-search-btn {display: flex; align-items: flex-end; justify-content: flex-end;}
 
 /* Button Style */
@@ -52,6 +54,8 @@ Version : v1.0
 .btn-searchadr:hover {background: #344257 url(../images/board/ic_search.svg) no-repeat 22px 13px;}
 .btn-download {background: #5E667E url(../images/button/ic_alldown.svg) no-repeat 21px 13px; color: #ffffff; border: none; padding: 1rem 2rem 1rem 4.4rem; font-size: 1.4rem;}
 .btn-download:hover {background: #4a5369 url(../images/button/ic_alldown.svg) no-repeat 21px 13px; transition: all ease 0.2s 0s;}
+.btn-location {background: #3e5068; color: #fff; padding: 0 22px; border: none; }
+.btn-location:hover {background: #344257;}
 
 /* 게시판 정보 */
 .brd-info {display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.6rem;}
@@ -119,9 +123,9 @@ Version : v1.0
 .sub-table td select {padding: 0 40px 0 14px; display: inline-block;}
 .sub-table td p {line-height: 2.4rem;}
 .sub-table td input[type="text"] {width: 100%; border: 1px solid #E0E0E0;}
-.sub-table td input[type="text"].s-size {width: 120px;}
-.sub-table td input[type="text"].m-size {width: 220px;}
-.sub-table td input[type="text"].l-size {width: 360px;}
+input.s-size, select.s-size {width: 120px;}
+input.m-size, select.m-size {width: 220px;}
+input.l-size, select.l-size {width: 360px;}
 .sub-table td .input-type-col {display: flex; flex-direction: column; gap: 10px;}
 .sub-table td .input-type-row {display: flex; gap: 10px; align-items: center;}
 

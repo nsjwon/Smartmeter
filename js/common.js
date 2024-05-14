@@ -166,7 +166,7 @@ $(document).ready(function(){
     // });
 
     // tbody의 각 행(tr) 더블클릭 이벤트
-    $('tbody tr').dblclick(function(){
+    $('.linkable tr').dblclick(function(){
         // pagemove() 함수 실행
         fn_pageMove();
     });
