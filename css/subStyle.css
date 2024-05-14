@@ -123,9 +123,12 @@ Version : v1.0
 .sub-table td select {padding: 0 40px 0 14px; display: inline-block;}
 .sub-table td p {line-height: 2.4rem;}
 .sub-table td input[type="text"] {width: 100%; border: 1px solid #E0E0E0;}
-input.s-size, select.s-size {width: 120px;}
+input.s-size, select.s-size {width: 120px; min-width: unset;}
 input.m-size, select.m-size {width: 220px;}
-input.l-size, select.l-size {width: 360px;}
+input.l-size, select.l-size {width: 460px;}
+.sub-table td input.s-size, .sub-table td select.s-size {width: 120px; min-width: unset;}
+.sub-table td input.m-size, .sub-table td select.m-size {width: 220px;}
+.sub-table td input.l-size, .sub-table td select.l-size {width: 460px;}
 .sub-table td .input-type-col {display: flex; flex-direction: column; gap: 10px;}
 .sub-table td .input-type-row {display: flex; gap: 10px; align-items: center;}
 
