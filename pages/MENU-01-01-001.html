@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../css/subStyle.css">
     <script src="../js/jquery-3.6.3.min.js"></script>
     <script src="../js/common.js"></script>
-    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
+    <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
     <title>원격검침시스템 - 수용가리스트</title>
     <script>
@@ -32,8 +32,8 @@
                     <li class="d1">
                         <a href="#none"><span>수용가관리</span></a>
                         <ul class="two-depth">
-                            <li><a href="">수용가리스트</a></li>
-                            <li><a href="">수용가등록</a></li>
+                            <li><a href="./MENU-01-01-001.html">수용가리스트</a></li>
+                            <li><a href="./MENU-01-01-004.html">수용가등록</a></li>
                             <li><a href="">수용가등록(엑셀업로드)</a></li>
                         </ul>
                     </li>
@@ -117,43 +117,47 @@
                         <div class="brd-search-form">
                             <div class="search-select">
                                 <p>업종구분</p>
-                                <label for="type" class="hide">구분</label>
-                                <select name="type">
-                                    <option>전체</option>
-                                    <option>가정용</option>
-                                    <option>상업용</option>
-                                    <option>농축산용</option>
-                                    <option>공업용</option>
-                                    <option>일반</option>
-                                    <option>기타</option>
-                                </select>
+                                <label for="type">
+                                    <select name="type">
+                                        <option>전체</option>
+                                        <option>가정용</option>
+                                        <option>상업용</option>
+                                        <option>농축산용</option>
+                                        <option>공업용</option>
+                                        <option>일반</option>
+                                        <option>기타</option>
+                                    </select>
+                                </label>
                             </div>
                             <div class="search-select">
                                 <p>위치구분</p>
-                                <label for="type1" class="hide">구분</label>
-                                <select name="type1">
-                                    <option>전체</option>
-                                    <option>있음</option>
-                                    <option>없음</option>
-                                </select>
+                                <label for="type1">
+                                    <select name="type1">
+                                        <option>전체</option>
+                                        <option>있음</option>
+                                        <option>없음</option>
+                                    </select>
+                                </label>
                             </div>
                             <div class="search-select">
                                 <p>자가검침</p>
-                                <label for="type2" class="hide">구분</label>
-                                <select name="type2">
-                                    <option>전체</option>
-                                    <option>사용</option>
-                                    <option>미사용</option>
-                                </select>
+                                <label for="type2">
+                                    <select name="type2">
+                                        <option>전체</option>
+                                        <option>사용</option>
+                                        <option>미사용</option>
+                                    </select>
+                                </label>
                             </div>
                             <div class="search-select">
                                 <p>사용여부</p>
-                                <label for="type3" class="hide">구분</label>
-                                <select name="type3">
-                                    <option>전체</option>
-                                    <option>사용</option>
-                                    <option>미사용</option>
-                                </select>
+                                <label for="type2">
+                                    <select name="type3">
+                                        <option>전체</option>
+                                        <option>사용</option>
+                                        <option>미사용</option>
+                                    </select>
+                                </label>
                             </div>
                             <div class="search-text">
                                 <p>검색어</p>
@@ -174,7 +178,7 @@
                             <li><span>현재 페이지 </span><em>1/14</em></li>
                         </ul>
                         <div class="brd-btn-wrap">
-                            <input type="button" value="추가" class="btn-blueline">
+                            <input type="button" value="추가" class="btn-blueline" onclick="location.href='./MENU-01-01-004.html'">
                             <input type="button" value="삭제" class="btn-redline">
                             <button class="btn-excel">EXCEL</button>
                         </div>
@@ -205,7 +209,7 @@
                             </colgroup>
                             <thead>
                                 <tr>
-                                    <th><input type="checkbox" disabled></th>
+                                    <th><label><input type="checkbox" disabled></label></th>
                                     <th>순번</th>
                                     <th>수용가번호</th>
                                     <th>상수업종</th>
@@ -239,7 +243,7 @@
                                     <td>있음</td>
                                     <td>2016/06/16</td>
                                     <td>사용</td>
-                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="./MENU-01-01-003.html" class="btn-listedit"></a></td>
                                     <td><a href="#none" class="btn-listdel"></a></td>
                                 </tr>
                                 <tr>
@@ -257,7 +261,7 @@
                                     <td>있음</td>
                                     <td>2016/06/16</td>
                                     <td>사용</td>
-                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="./MENU-01-01-003.html" class="btn-listedit"></a></td>
                                     <td><a href="#none" class="btn-listdel"></a></td>
                                 </tr>
                                 <tr>
@@ -275,7 +279,7 @@
                                     <td>있음</td>
                                     <td>2016/06/16</td>
                                     <td>사용</td>
-                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="./MENU-01-01-003.html" class="btn-listedit"></a></td>
                                     <td><a href="#none" class="btn-listdel"></a></td>
                                 </tr>
                                 <tr>
@@ -293,7 +297,7 @@
                                     <td>있음</td>
                                     <td>2016/06/16</td>
                                     <td>사용</td>
-                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="./MENU-01-01-003.html" class="btn-listedit"></a></td>
                                     <td><a href="#none" class="btn-listdel"></a></td>
                                 </tr>
                                 <tr>
@@ -311,7 +315,7 @@
                                     <td>있음</td>
                                     <td>2016/06/16</td>
                                     <td>사용</td>
-                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="./MENU-01-01-003.html" class="btn-listedit"></a></td>
                                     <td><a href="#none" class="btn-listdel"></a></td>
                                 </tr>
                                 <tr>
@@ -329,7 +333,7 @@
                                     <td>있음</td>
                                     <td>2016/06/16</td>
                                     <td>사용</td>
-                                    <td><a href="#none" class="btn-listedit"></a></td>
+                                    <td><a href="./MENU-01-01-003.html" class="btn-listedit"></a></td>
                                     <td><a href="#none" class="btn-listdel"></a></td>
                                 </tr>
                                 <!-- 게시글이 없을때 :s  -->

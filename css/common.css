@@ -304,6 +304,7 @@ input {padding: 0.8rem 1.3rem 0.8rem 1.3rem; margin: 0; border-radius: 4px; -web
 input[type="checkbox"], input[type="radio"] {cursor: pointer; vertical-align: middle; width: 2rem; height: 2rem; margin: 0; opacity: .5; -webkit-appearance: auto;}
 input[type="checkbox"]:checked, input[type="radio"]:checked {opacity: 1; accent-color: #376FDC;}
 input[type="checkbox"]:disabled {cursor: default;}
+input[type="checkbox"]:disabled {cursor: default;}
 select {text-transform: none; display: block; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; background: #fff url(../images/main/ic_select-s.svg) no-repeat right 1.2rem center; border: 1px solid #e9e9ec;}
 button, input[type=button] {transition: all ease 0.2s 0s;}
 textarea {position: relative; resize: none; background-color: #ffffff; line-height: 2.4rem; width: 100%; display: inline-block; margin: 0; box-sizing: border-box; vertical-align: middle; border: 1px solid #e9e9ec; border-radius: 4px; font-size: 1.5rem;}
