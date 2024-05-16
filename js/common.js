@@ -19,6 +19,13 @@ $(document).ready(function() {
 //레프트 메뉴 클릭이벤트
 $(document).ready(function() {
     $(".two-depth").hide();
+
+    // active 클래스를 가진 .d1 요소를 찾습니다.
+    $(".d1.active").each(function() {
+        // 해당 .d1 요소 내의 .two-depth 요소를 보이게 합니다.
+        $(this).find(".two-depth").show();
+    });
+
     $(".d1 > a").click(function(e) {
         if ($(this).parent(".one-menu").length > 0) {
             // one-menu 클래스가 있는 경우에는 링크로 이동
@@ -192,3 +199,29 @@ $(document).ready(function(){
     });
 });
 
+
+
+//팝업 정중앙 위치
+$(document).ready(function() {
+    function centerPopup() {
+        var $popupContent = $('.popup-content');
+        var windowHeight = $(window).height();
+        var windowWidth = $(window).width();
+        var popupWidth = $popupContent.outerWidth();
+        var popupHeight = $popupContent.outerHeight();
+
+        var leftPosition = (windowWidth - popupWidth) / 2;
+        var topPosition = (windowHeight - popupHeight) / 2;
+
+        $popupContent.css({
+            'left': leftPosition + 'px',
+            'top': topPosition + 'px'
+        });
+    }
+
+    centerPopup();
+    
+    $(window).resize(function() {
+        centerPopup();
+    });
+});

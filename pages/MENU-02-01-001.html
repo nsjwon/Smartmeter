@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/mainStyle.css">
     <link rel="stylesheet" href="../css/subStyle.css">
+    <link rel="stylesheet" href="../css/popup.css">
     <script src="../js/jquery-3.6.3.min.js"></script>
     <script src="../js/common.js"></script>
     <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
@@ -29,12 +30,11 @@
             <h1 id="logo"><a href="./main.html"><img src="../images/main/main_logo.svg" alt="원격검침시스템"></a></h1>
             <nav id="gnb">
                 <ul class="one-depth">
-                    <li class="d1">
+                    <li class="d1 active">
                         <a href="#none"><span>수용가관리</span></a>
                         <ul class="two-depth">
-                            <li><a href="./MENU-02-01-001.html">수용가리스트</a></li>
+                            <li class="focus"><a href="./MENU-02-01-001.html">수용가리스트</a></li>
                             <li><a href="./MENU-02-01-004.html">수용가등록</a></li>
-                            <li><a href="">수용가등록(엑셀업로드)</a></li>
                         </ul>
                     </li>
                     <li class="d1">
@@ -68,9 +68,8 @@
                     <li class="d1">
                         <a href="#none"><span>검침정보관리</span></a>
                         <ul class="two-depth">
-                            <li><a href="">검침정보리스트</a></li>
-                            <li><a href="">검침정보등록</a></li>
-                            <li><a href="">검침정보등록(엑셀업로드)</a></li>
+                            <li><a href="./MENU-07-01-001.html">검침정보리스트</a></li>
+                            <li><a href="./MENU-07-01-004.html">검침정보등록</a></li>
                             <li><a href="">검침정보다운로드(DAT)</a></li>
                         </ul>
                     </li>
@@ -78,13 +77,12 @@
                         <a href="#none"><span>공통관리</span></a>
                         <ul class="two-depth">
                             <li><a href="">공통코드리스트</a></li>
-                            <li><a href="">환경관리</a></li>
                         </ul>
                     </li>
                     <li class="d1">
                         <a href="#none"><span>통계</span></a>
                         <ul class="two-depth">
-                            <li><a href="./MENU-09-01-001.html">사용량통계</a></li>
+                            <li><a href="#none">사용량통계</a></li>
                             <li><a href="./MENU-09-02-001.html">검침현황통계</a></li>
                         </ul>
                     </li>
@@ -97,6 +95,16 @@
                     </li>
                 </ul>
             </nav>
+            <div id="setmenu">
+                <a href="./login.html" class="logout">
+                    <img src="../images/button/ic_logout.svg" alt="로그아웃">
+                    <span>로그아웃</span>
+                </a>
+                <a href="#none" class="setting popup-button" data-target="#settingAdd">
+                    <img src="../images/button/ic_setting.svg" alt="환경관리">
+                    <span>환경관리</span>
+                </a>
+            </div>
         </div>
         <main id="sub-wrap">
             <div class="sub-inner-wrap">
@@ -107,7 +115,7 @@
                     <li><img src="../images/board/ic_depth.svg" alt="depth"></li>
                     <li>수용가리스트</li>
                 </ul>
-                <div class="sub-title-wrap pl10">
+                <div class="sub-title-wrap">
                     <h2>수용가리스트</h2>
                 </div>
                 <!-- board wrap :s-->
@@ -180,7 +188,8 @@
                         <div class="brd-btn-wrap">
                             <input type="button" value="추가" class="btn-blueline" onclick="location.href='./MENU-02-01-004.html'">
                             <input type="button" value="삭제" class="btn-redline">
-                            <button class="btn-excel">EXCEL</button>
+                            <button class="btn-excel mr10">엑셀다운로드</button>
+                            <button class="btn-excel upload popup-button" data-target="#excelUpload">엑셀업로드</button>
                         </div>
                     </div>                               
                     <!-- board info : e-->
@@ -254,7 +263,7 @@
                                     <td>홍길동</td>
                                     <td>010-1234-5678</td>
                                     <td>고흥읍 성촌2길 18</td>
-                                    <td>22-118553</td>
+                                    <td>22-118554</td>
                                     <td>13mm</td>
                                     <td>사용</td>
                                     
@@ -272,7 +281,7 @@
                                     <td>홍길동</td>
                                     <td>010-1234-5678</td>
                                     <td>고흥읍 성촌2길 20</td>
-                                    <td>22-118553</td>
+                                    <td>22-118555</td>
                                     <td>13mm</td>
                                     <td>사용</td>
                                     
@@ -290,7 +299,7 @@
                                     <td>홍길동</td>
                                     <td>010-1234-5678</td>
                                     <td>고흥읍 성촌2길 26-4</td>
-                                    <td>22-118553</td>
+                                    <td>22-118556</td>
                                     <td>13mm</td>
                                     <td>사용</td>
                                     
@@ -308,7 +317,7 @@
                                     <td>홍길동</td>
                                     <td>010-1234-5678</td>
                                     <td>고흥읍 성촌2길 31</td>
-                                    <td>22-118553</td>
+                                    <td>22-118557</td>
                                     <td>13mm</td>
                                     <td>사용</td>
                                     
@@ -326,7 +335,79 @@
                                     <td>홍길동</td>
                                     <td>010-1234-5678</td>
                                     <td>고흥읍 성촌2길 36</td>
-                                    <td>22-118553</td>
+                                    <td>22-118558</td>
+                                    <td>13mm</td>
+                                    <td>사용</td>
+                                    
+                                    <td>있음</td>
+                                    <td>2016/06/16</td>
+                                    <td>사용</td>
+                                    <td><a href="./MENU-02-01-003.html" class="btn-listedit"></a></td>
+                                    <td><a href="#none" class="btn-listdel"></a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="list-chk"></td>
+                                    <td>7</td>
+                                    <td>001-030-000800-00-0</td>
+                                    <td>가정용</td>
+                                    <td>홍길동</td>
+                                    <td>010-1234-5678</td>
+                                    <td>고흥읍 성촌2길 38-1</td>
+                                    <td>22-118559</td>
+                                    <td>13mm</td>
+                                    <td>사용</td>
+                                    
+                                    <td>있음</td>
+                                    <td>2016/06/16</td>
+                                    <td>사용</td>
+                                    <td><a href="./MENU-02-01-003.html" class="btn-listedit"></a></td>
+                                    <td><a href="#none" class="btn-listdel"></a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="list-chk"></td>
+                                    <td>8</td>
+                                    <td>001-030-000900-00-0</td>
+                                    <td>가정용</td>
+                                    <td>홍길동</td>
+                                    <td>010-1234-5678</td>
+                                    <td>고흥읍 성촌2길 41</td>
+                                    <td>22-118562</td>
+                                    <td>13mm</td>
+                                    <td>사용</td>
+                                    
+                                    <td>있음</td>
+                                    <td>2016/06/16</td>
+                                    <td>사용</td>
+                                    <td><a href="./MENU-02-01-003.html" class="btn-listedit"></a></td>
+                                    <td><a href="#none" class="btn-listdel"></a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="list-chk"></td>
+                                    <td>9</td>
+                                    <td>001-030-001000-00-0</td>
+                                    <td>가정용</td>
+                                    <td>홍길동</td>
+                                    <td>010-1234-5678</td>
+                                    <td>고흥읍 성촌2길 42</td>
+                                    <td>22-118564</td>
+                                    <td>13mm</td>
+                                    <td>사용</td>
+                                    
+                                    <td>있음</td>
+                                    <td>2016/06/16</td>
+                                    <td>사용</td>
+                                    <td><a href="./MENU-02-01-003.html" class="btn-listedit"></a></td>
+                                    <td><a href="#none" class="btn-listdel"></a></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" name="list-chk"></td>
+                                    <td>10</td>
+                                    <td>001-030-001100-00-0</td>
+                                    <td>가정용</td>
+                                    <td>홍길동</td>
+                                    <td>010-1234-5678</td>
+                                    <td>고흥읍 성촌3길 15</td>
+                                    <td>22-118565</td>
                                     <td>13mm</td>
                                     <td>사용</td>
                                     
@@ -345,7 +426,6 @@
                         </table>
                     </div>
                     <!-- board table :e -->
-
                     
                     <!-- pagination:s -->
                     <div class="pagination">       
@@ -360,10 +440,163 @@
                         </span>                
                     </div>                  
                     <!-- pagination:e -->   
+
+
                 </div>
                 <!-- board wrap :e-->
             </div>
+            <footer id="footer-sub">
+                <p>(54851) 전라북도 전주시 덕진구 기린대로 1025, 3층 전북지역협력단</p>
+                <p>Copyright © K-water All Rights Reserved.</p>
+            </footer>
         </main>
+
+
+        <!-- 엑셀업로드 팝업 시작 -->
+        <div id="excelUpload" class="popup-panel">
+            <div class="popup-bg"></div>
+            <div class="popup-content popup-content-excelUpload">
+                <div class="popup-header">
+                    <h2>수용가 등록(엑셀업로드)</h2>
+                    <a class="close-button" href="#none"></a>
+                </div>
+                <div class="popup-body flex-col">
+                    
+                    <div class="board-title borderT">
+                    </div>
+                    <!-- 엑셀업로드 테이블:s -->
+                    <table class="popup-table">
+                        <caption class="hide">엑셀 파일 리스트</caption>
+                        <colgroup>
+                            <col style="width: 157px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">등록구분</th>
+                                <td>
+                                    <select name="type" id="type">
+                                        <option value="1">등록선택</option>
+                                        <option value="2">추가항목만</option>
+                                        <option value="2">업데이트항목만</option>
+                                        <option value="2">전체:추가/업데이트</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">파일첨부</th>
+                                <td><input type="text" name="sysCk" class="w100"></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">첨부파일</th>
+                                <td class="file-upload">
+                                    <div class="flex-col">
+                                        <div class="input-type-file">
+                                            <input type="text" value="" placeholder="상수도 수전현황 파일을 선택하세요(엑셀)" class="overtext" readonly="readonly">
+                                            <label for="searchFileBtn" class="hide">파일찾기</label>
+                                            <input type="button" class="btn-darkgray" value="파일찾기" id="searchFileBtn">
+                                        </div>
+                                        <ul class="att-file">
+                                            <!-- <li>첨부파일1.hwp<span>(283.52KB)</span><a href="#none" class="ml8"><img src="../images/board/ic_del-file.svg" alt=""></a></li>
+                                            <li>첨부파일2.jpeg<span>(630KB)</span><a href="#none" class="ml8"><img src="../images/board/ic_del-file.svg" alt=""></a></li> -->
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 엑셀업로드 테이블:e -->
+                </div>
+                <div class="popup-btn-wrap">
+                    <div class="btn-wrap">
+                        <!-- <input type="button" value="삭제" class="btn-delete"> -->
+                        <input type="button" value="등록" class="btn-blue">
+                        <input type="button" value="닫기" class="btn-gray close-button">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 엑셀업로드 팝업 끝 -->
+
+
+        
+        <!-- 환경설정등록 팝업 시작 -->
+        <div id="settingAdd" class="popup-panel">
+            <div class="popup-bg"></div>
+            <div class="popup-content popup-content-settingAdd">
+                <div class="popup-header">
+                    <h2>환경설정 등록</h2>
+                    <a class="close-button" href="#none"></a>
+                </div>
+                <div class="popup-body flex-col">
+                    
+                    <div class="board-title borderT">
+                    </div>
+                    <!-- 환경설정등록 테이블:s -->
+                    <table class="popup-table">
+                        <caption class="hide">환경설정등록 리스트</caption>
+                        <colgroup>
+                            <col style="width: 157px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">검침제한반경</th>
+                                <td>
+                                    <div class="input-type-row">
+                                        <input type="text" class="s-size"> m
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">검침년월</th>
+                                <td>
+                                    <div class="input-type-row">
+                                        <label for="type1">
+                                            <select name="type1" class="s-size">
+                                                <option>2024년</option>
+                                                <option>2023년</option>
+                                                <option>2022년</option>
+                                                <option>2021년</option>
+                                                <option>2020년</option>
+                                            </select>
+                                        </label>
+                                        <span>~</span>
+                                        <label for="type2">
+                                            <select name="type2" class="s-size">
+                                                <option>5월</option>
+                                                <option>4월</option>
+                                                <option>3월</option>
+                                                <option>2월</option>
+                                                <option>1월</option>
+                                                <option>12월</option>
+                                                <option>11월</option>
+                                                <option>10월</option>
+                                                <option>9월</option>
+                                                <option>8월</option>
+                                                <option>7월</option>
+                                                <option>6월</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 환경설정등록 테이블:e -->
+                </div>
+                <div class="popup-btn-wrap">
+                    <div class="btn-wrap">
+                        <!-- <input type="button" value="삭제" class="btn-delete"> -->
+                        <input type="button" value="등록" class="btn-blue">
+                        <input type="button" value="닫기" class="btn-gray close-button">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 환경설정등록 팝업 끝 -->
+
+
     </div>
 </body>
 </html>

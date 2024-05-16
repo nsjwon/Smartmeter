@@ -25,11 +25,17 @@ Version : v1.0
 .signup-button:hover {background: #466fe1; color: #fff; transition: all .3s;}
 
 /* 레프트 메뉴 */
-#left-menu {width: 28rem; padding: 4rem 1.6rem; display: flex; flex-direction: column; background: #2a3042; min-height: 100vh;}
-#logo {height: 3rem; padding: 0 2.4rem;}
+#left-menu {position: relative; width: 28rem; padding: 4rem 1.6rem; display: flex; flex-direction: column; background: #2a3042; min-height: 100vh;}
+#logo {padding: 0 2.4rem;}
 #gnb {margin: 4rem 0;}
+#setmenu {position: absolute; left: 3.4rem; bottom: 4rem; color: #6A7187; font-weight: 500; font-size: 13px; display: flex;}
+#setmenu .logout {display: flex; align-items: center;}
+#setmenu>a:hover {color: #A5ADC3;}
+#setmenu>a>img {margin-right: 10px;}
+#setmenu .setting {position: relative; padding-left: 42px; display: flex; align-items: center;}
+#setmenu .setting:before {position: absolute; left: 21px; top: 2px; display: block; height: 16px; width: 1px; background: #6a7187; content: '';}
 .one-depth .d1 {padding: 2px 0;}
-.one-depth .d1>a {color: #8d97b4; position: relative; width: 248px; height: 52px; padding: 0 20px 0 54px; font-size: 1.6rem; font-weight: 500; display: flex; align-items: center;}
+.one-depth .d1>a {color: #A5ADC3; position: relative; width: 248px; height: 52px; padding: 0 20px 0 54px; font-size: 1.6rem; font-weight: 500; display: flex; align-items: center;}
 .one-depth .d1>a:before {position: absolute; left: 20px; top: 16px; content: ''; display: block; width: 20px; height: 20px;}
 .one-depth .d1:first-child>a:before {background: url(../images/nav/side01-normal.svg) no-repeat; background-size: contain;}
 .one-depth .d1:nth-child(2)>a:before {background: url(../images/nav/side02-normal.svg) no-repeat; background-size: contain;}
@@ -54,17 +60,17 @@ Version : v1.0
 .one-depth .d1.active>a:after {position: absolute; right: 20px; top: 16px; content: ''; display: block; width: 20px; height: 20px; background: url(../images/main/ic_arrowup.svg) no-repeat;}
 .two-depth {padding: 11px 0 16px 0;}
 .two-depth li {padding: 1px 0;}
-.two-depth li a {color: #8d97b4; width: 100%; display: block; height: 35px; line-height: 35px; padding: 0 20px 0 56px; border-radius: 6px;}
+.two-depth li a {color: #A5ADC3; width: 100%; display: block; height: 35px; line-height: 35px; padding: 0 20px 0 56px; border-radius: 6px;}
 .two-depth li a:hover {background: #242a3a; color: #fff;}
-.two-depth li.focus a {text-decoration: underline; font-weight: 600; color: #fff; background: #405DBC;}
+.two-depth li.focus a {color: #fff; background: #242a3a;}
 
 /* 메인 컨텐츠 */
 #main-wrap {background: #f0f2f8; padding: 4rem; flex: 1;}
 .main-title {font-weight: 600; color: #79829C; font-size: 15px;}
 .main-sub-title {font-weight: 600; color: #343A40; font-size: 18px; line-height: 18px; padding-top: 2px; font-family: 'GmarketSans', 'Pretendard','Noto Sans KR','Apple SD Gothic Neo','맑은 고딕','Malgun Gothic','돋움','Dotum','굴림','Gulim','AppleGothic','Sans-serif';}
-.main-content-wrap {width: 100%; height: calc(100vh - 140px); margin-top: 24px; display: flex;}
-.main-content-left {display: flex; flex-direction: column; gap: 24px; margin-right: 24px; flex: 3;}
-.main-content-right {display: flex; flex-direction: column; gap: 24px; flex: 2;}
+.main-content-wrap {width: 100%; min-width: 1240px; height: calc(100vh - 212px); margin-top: 24px; display: flex;}
+.main-content-left {display: flex; flex-direction: column; margin-right: 24px; width: 60%;}
+.main-content-right {display: flex; flex-direction: column; width: 40%;}
 .main-content-left>div, .main-content-right>div {position: relative;}
 .left-cont-01 {display: flex; gap: 15px;}
 .left-cont-01>a {position: relative; flex: 1; padding: 27px 24px; background: #4876EB url(../images/main/bg_stat.svg) no-repeat right 50% bottom; border-radius: 8px;}
@@ -100,11 +106,11 @@ Version : v1.0
 .map-info .detail-link:hover {background: #466FE1; color: #fff;}
 .left-cont-03 {display: flex; align-items: center; gap: 50px; background: #fff; border-radius: 8px; min-height: 151px; padding: 30px;}
 .left-cont-03 .main-notice {display: flex; flex-direction: column;}
-.left-cont-03 .main-notice-title {font-size: 16px; font-weight: 500; color: #1C1D1F;}
+.left-cont-03 .main-notice-title {font-size: 16px; font-weight: bold; color: #1C1D1F;}
 .left-cont-03 .main-notice-text {font-size: 15px; font-weight: 400; color: #666; margin-top: 10px; line-height: 20px; flex: 1;}
 .left-cont-03 .main-notice-date {font-size: 13px; font-weight: 400; color: #A5ACB7; margin-top: 15px;}
 .left-cont-03 .more-view {position: absolute; width: 28px; height: 28px; display: block; background: url(../images/main/ic_moreview.svg) no-repeat; right: 28px; top: 20px;}
-.right-cont {background: #fff; color: #343a40; border-radius: 8px; padding: 24px; align-self: stretch; display: flex; flex-direction: column; flex: 1; gap: 15px;}
+.right-cont {background: #fff; color: #343a40; border-radius: 8px; padding: 24px; height: calc((100% - 24px) / 2); display: flex; flex-direction: column; flex: 1; gap: 15px;}
 .right-cont .rc-header {display: flex; align-items: center; justify-content: space-between; padding-right: 42px;}
 .right-cont .month-select {position: relative; height: 36px; display: flex; align-items: center;}
 .right-cont .month-select select {cursor: pointer; padding: 4px 20px 4px 8px; font-size: 14px; background: none; border-radius: 4px; width: 8rem; border: 1px solid #E2E6EB; height: 26px;}

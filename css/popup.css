@@ -1,0 +1,44 @@
+
+/* 팝업 스타일 */
+.popup-panel {position: fixed; top: 0; display: none; width: 100%; height: 100%; z-index: 9250;}
+.popup-panel.is-active {display: block;}
+.popup-bg {position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; opacity: .65; filter: alpha(opacity=65); z-index: 9998;}
+.popup-content {overflow: hidden; display: block; padding: 5rem; position: absolute; border-radius: 10px; background-color: #fff; z-index: 10; box-shadow: 0px 4px 30px 10px rgba(0, 0, 0, 0.1); z-index: 9999;}
+.popup-content-excelUpload {width: 78rem; height: 46rem;}
+.popup-content-settingAdd {width: 68rem; height: 38rem;}
+.popup-content-loadSection {left: calc((100vw - 98rem) / 2) !important; top: calc((100vh - 84rem) / 2) !important; width: 98rem; height: 84rem;}
+
+@media (max-width: 1420px) {
+}
+@media (max-width: 1280px) {
+}
+.popup-header {margin-bottom: 4rem; display: flex; align-items: center; justify-content: space-between;}
+.popup-header h2 {font-size: 2.8rem; line-height: 3.2rem; font-weight: 600;}
+.popup-header .close-button {display: block; width: 30px; height: 30px; background: url(../images/common/pop-close.svg) no-repeat; background-size: contain;}
+.popup-body {height: calc(100% - 142px); overflow-y: auto; overflow-x: hidden;}
+.popup-body .board-block:first-child {margin-top: 0;}
+.popup-content-05 .popup-body {height: calc(100% - 72px);}
+.popup-body::-webkit-scrollbar {width: 1em;}
+.popup-body::-webkit-scrollbar-track {background: #ddd; border-radius: 1rem;}
+.popup-body::-webkit-scrollbar-thumb {background-color: #bababa; border-radius: 1rem;}
+.popup-body.flex-col {width: 100%; height: auto; max-height: calc(100% - 142px);}
+.popup-body.flex-col>div {width: auto; display: block; flex-grow: 1; flex-shrink: 1; flex-basis: auto;}
+.popup-body.flex-col .board-title {width: auto; display: flex; flex-grow: 1; flex-shrink: 1; flex-basis: auto;}
+.popup-body.flex-col .board-title.borderT {border-top: 1px solid #4f4f4f;}
+.popup-body.flex-col .board-list {width: 100%; flex-grow: 1; flex-shrink: 1; flex-basis: auto;}
+.popup-btn-wrap .btn-wrap {display: flex; align-items: center; justify-content: center; margin: 4rem 0 0; gap: 10px;}
+.popup-btn-wrap .btn-wrap input[type="button"] {width: 12rem; height: 40px; border-radius: 4px; transition: all ease 0.2s 0s;}
+.popup-content select {min-width: 120px; border: 1px solid #dadade;}
+.popup-content input[type="text"] {border: 1px solid #dadade;}
+
+/* 팝업 테이블 */
+.popup-table th {background: #F5F7F8; border-bottom: 1px solid #E8E8E8; padding: 2rem; color: #333; font-size: 1.5rem; line-height: 2rem; font-weight: 500; text-align: center; word-break: keep-all;}
+.popup-table td {border-bottom: 1px solid #ddd; padding: 1rem 2rem;}
+.popup-table td .input-type-col {display: flex; flex-direction: column; gap: 10px;}
+.popup-table td .input-type-row {display: flex; gap: 10px; align-items: center;}
+.popup-table td .input-type-file {display: flex; gap: 10px; align-items: center;}
+.popup-table td .input-type-file input[type="text"] {flex: 1;}
+
+/* 그룹코드 등록/수정 */
+.board-table.popup {width: 100%; border-top: 1px solid #4f4f4f;}
+.board-table.popup input[type="text"] {width: 100%; border: 1px solid #e9e9ec;}

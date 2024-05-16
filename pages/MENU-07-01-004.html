@@ -12,7 +12,7 @@
     <script src="../js/common.js"></script>
     <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
-    <title>원격검침시스템 - 수용가정보</title>
+    <title>원격검침시스템 - 검침정보</title>
 </head>
 <body>
     <!-- 반복영역 건너뛰기 -->
@@ -25,10 +25,10 @@
             <h1 id="logo"><a href="./main.html"><img src="../images/main/main_logo.svg" alt="원격검침시스템"></a></h1>
             <nav id="gnb">
                 <ul class="one-depth">
-                    <li class="d1 active">
+                    <li class="d1">
                         <a href="#none"><span>수용가관리</span></a>
                         <ul class="two-depth">
-                            <li class="focus"><a href="./MENU-02-01-001.html">수용가리스트</a></li>
+                            <li><a href="./MENU-02-01-001.html">수용가리스트</a></li>
                             <li><a href="./MENU-02-01-004.html">수용가등록</a></li>
                         </ul>
                     </li>
@@ -60,11 +60,11 @@
                             <li><a href="">사용자등록</a></li>
                         </ul>
                     </li>
-                    <li class="d1">
+                    <li class="d1 active">
                         <a href="#none"><span>검침정보관리</span></a>
                         <ul class="two-depth">
                             <li><a href="./MENU-07-01-001.html">검침정보리스트</a></li>
-                            <li><a href="./MENU-07-01-004.html">검침정보등록</a></li>
+                            <li class="focus"><a href="./MENU-07-01-004.html">검침정보등록</a></li>
                             <li><a href="">검침정보다운로드(DAT)</a></li>
                         </ul>
                     </li>
@@ -107,37 +107,25 @@
                 <ul class="menu-nav mb40">
                     <li><img src="../images/board/ic_home.svg" alt="home"></li>
                     <li><img src="../images/board/ic_depth.svg" alt="depth"></li>
-                    <li>수용가관리</li>
+                    <li>검침정보관리</li>
                     <li><img src="../images/board/ic_depth.svg" alt="depth"></li>
-                    <li>수용가리스트</li>
+                    <li>검침정보등록</li>
                 </ul>
                 <!-- 페이지 네비게이션:e -->
 
                 <!-- 상세페이지 타이틀:s -->
                 <div class="sub-title-wrap btn-type">
-                    <h2>수용가정보</h2>
+                    <h2>검침정보</h2>
                     <div class="brd-btn-wrap">
-                        <input type="button" value="수정" class="btn-blueline" onclick="location.href='./MENU-02-01-003.html'">
-                        <input type="button" value="삭제" class="btn-redline" id="delBtn">
-                        <input type="button" value="닫기" class="btn-gray" onclick="history.back()">
+                        <div class="brd-btn-wrap">
+                            <input type="button" value="등록" class="btn-blue" id="registBtn">
+                            <!-- <input type="button" value="삭제" class="btn-redline"> -->
+                            <input type="button" value="닫기" class="btn-gray" onclick="history.back()">
+                        </div>
                     </div>
                 </div>
                 <!-- 상세페이지 타이틀:e -->
 
-                <!-- 수용가 월별 사용량:s -->
-                <div class="content-block">
-                    <div class="content-title">
-                        <h4>사용량통계</h4>
-                    </div>
-                    <div class="content-boxline">
-                        <div class="prd-select-sub">
-                            <label><input type="radio" name="prdOt" id="prd1" checked><span>월별</span></label>
-                            <label><input type="radio" name="prdOt" id="prd2"><span>년별</span></label>
-                        </div>
-                        <div id="PeopleChart"></div>
-                    </div>
-                </div>
-                <!-- 수용가 월별 사용량:e -->
                 
                 <!-- 수용가 정보:s -->
                 <div class="content-block mb60">
@@ -155,47 +143,73 @@
                             </colgroup>
                             <tbody>
                                 <tr>
-                                    <th scope="row">수용가번호</th>
-                                    <td>001030001100000</td>
-                                    <th scope="row">명칭</th>
-                                    <td>홍길동</td>
-                                </tr>
-                                <tr class="longtxt">
-                                    <th scope="row">상수업종</th>
+                                    <th scope="row">수용가명</th>
                                     <td colspan="3">
-                                        <p>농업용</p>
+                                        <div class="input-type-row">
+                                            <input type="text" value="" class="l-size">
+                                            <input type="button" value="수용가검색" class="btn-darkgray">
+                                        </div>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">전화번호</th>
-                                    <td>063-123-4567</td>
-                                    <th scope="row">핸드폰</th>
-                                    <td>010-1234-5678</td>
+                                    <th scope="row">검침일자</th>
+                                    <td colspan="3">
+                                        <input type="date" value="">
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">주소</th>
-                                    <td colspan="3">(54230) 전라남도 고흥군 고흥읍, 성촌2길 62</td>
+                                    <th scope="row">평균사용량</th>
+                                    <td colspan="3"><input type="text" value=""></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">위치</th>
-                                    <td>X: 34.604557313398054, Y: 127.26952175360134</td>
-                                    <th scope="row">가구수</th>
-                                    <td>1</td>
+                                    <th scope="row">전월검침량</th>
+                                    <td><input type="text" value=""></td>
+                                    <th scope="row">전월사용량</th>
+                                    <td><input type="text" value=""></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">자가검침여부</th>
-                                    <td>사용</td>
-                                    <th scope="row">사용여부</th>
-                                    <td>사용</td>
+                                    <th scope="row">금월검침량</th>
+                                    <td><input type="text" value=""></td>
+                                    <th scope="row">금월사용량</th>
+                                    <td><input type="text" value=""></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">인정조정코드</th>
+                                    <td colspan="3">
+                                        <select>
+                                            <option>선택</option>
+                                            <option>정상</option>
+                                            <option>회전</option>
+                                            <option>교체</option>
+                                            <option>인정</option>
+                                            <option>부동</option>
+                                            <option>누수</option>
+                                            <option>단수</option>
+                                            <option>미검침</option>
+                                            <option>자가검침</option>
+                                            <option>공업용수</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">내용</th>
+                                    <td colspan="3">
+                                        <textarea cols="30" rows="10" class="h15"></textarea>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">첨부파일</th>
-                                    <td colspan="3" class="file-download">
-                                        <div class="flex-bt">
+                                    <td colspan="3" class="file-upload">
+                                        <div class="flex-col">
+                                            <div class="input-type-row">
+                                                <input type="text" value="" class="overtext l-size" readonly="readonly">
+                                                <label for="searchFileBtn" class="hide">파일찾기</label>
+                                                <input type="button" class="btn-darkgray" value="파일찾기" id="searchFileBtn">
+                                            </div>
                                             <ul class="att-file">
-                                                <li><a href="#none" class="underline">C-20170213150447(283.52KB)<span>(75.52KB)</span></a></li>
+                                                <!-- <li>C-20170213150447.hwp<span>(283.52KB)</span><a href="#none" class="ml8"><img src="../images/board/ic_del-file.svg" alt=""></a></li>
+                                                <li>C-20170213150448.jpeg<span>(630KB)</span><a href="#none" class="ml8"><img src="../images/board/ic_del-file.svg" alt=""></a></li> -->
                                             </ul>
-                                            <!-- <input type="button" class="btn-download" value="일괄다운로드"> -->
                                         </div>
                                     </td>
                                 </tr>
@@ -210,12 +224,10 @@
                 <p>(54851) 전라북도 전주시 덕진구 기린대로 1025, 3층 전북지역협력단</p>
                 <p>Copyright © K-water All Rights Reserved.</p>
             </footer>
-
-            
         </main>
 
 
-
+            
         <!-- 환경설정등록 팝업 시작 -->
         <div id="settingAdd" class="popup-panel">
             <div class="popup-bg"></div>
@@ -292,90 +304,7 @@
         </div>
         <!-- 환경설정등록 팝업 끝 -->
 
-
         
     </div>
-    
-    <script>
-                    
-        //사용량 Chart Start
-        new ApexCharts($("#PeopleChart")[0], {
-            series: [{
-                name: " 사용량",
-                data: [{
-                    x: '2023/09',
-                    y: 400
-                }, {
-                    x: '2023/10',
-                    y: 430
-                }, {
-                    x: '2023/11',
-                    y: 448
-                }, {
-                    x: '2023/12',
-                    y: 470
-                }, {
-                    x: '2024/01',
-                    y: 540
-                }, {
-                    x: '2024/02',
-                    y: 580
-                }, {
-                    x: '2024/03',
-                    y: 690
-                }, {
-                    x: '2024/04',
-                    y: 690
-                }]
-            }],
-            chart: {
-            type: 'bar',
-            height: 380, 
-            toolbar: {
-                show: false,
-            }
-            },
-            xaxis: {
-                type: 'category',
-                labels: {
-                    formatter: function(val) {
-                        return val;
-                    }
-                },
-                group: {
-                    style: {
-                        fontSize: '10px',
-                        fontWeight: 700
-                    },
-                    groups: [
-                        { title: '2023', cols: 4 },
-                        { title: '2024', cols: 4 }
-                    ]
-                }
-            },
-            title: {
-                // text: '고흥읍 성촌2길 16',
-            }, fill: {
-                opacity: 1,
-                colors: ['#38A9EC']
-            },
-            tooltip: {
-                x: {
-                    formatter: function(val) {
-                        //return "Q" + dayjs(val).quarter() + " " + dayjs(val).format("YYYY")
-                        return val;
-                    }  
-                }
-            }
-        }).render();
-        //사용량 Chart End
-
-
-        function fn_delconfirm() {
-            var result = confirm("삭제하시겠습니까?");
-
-            if(!result){return false;}
-        }
-    </script>
 </body>
 </html>

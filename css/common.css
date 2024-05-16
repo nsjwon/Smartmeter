@@ -151,6 +151,7 @@ pre {margin: 0; white-space: pre-wrap; font-family: 'Pretendard', "NotoSansKR", 
 .pt8 {padding-top: 8px !important;}
 .pt10 {padding-top: 10px !important;}
 .pt16 {padding-top: 16px !important;}
+.pt24 {padding-top: 24px !important;}
 .pt40 {padding-top: 40px !important;}
 .pt50 {padding-top: 50px !important;}
 .pb0 {padding-bottom: 0 !important;}
@@ -305,7 +306,7 @@ input[type="checkbox"], input[type="radio"] {cursor: pointer; vertical-align: mi
 input[type="checkbox"]:checked, input[type="radio"]:checked {opacity: 1; accent-color: #376FDC;}
 input[type="checkbox"]:disabled {cursor: default;}
 input[type="checkbox"]:disabled {cursor: default;}
-select {text-transform: none; display: block; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; background: #fff url(../images/main/ic_select-s.svg) no-repeat right 1.2rem center; border: 1px solid #e9e9ec;}
+select {text-transform: none; display: block; border-radius: 4px; -webkit-border-radius: 4px; -moz-border-radius: 4px; background: #fff url(../images/main/ic_select-s.svg) no-repeat right 1.2rem center; border: 1px solid #e9e9ec; padding: 0 34px 0 14px;}
 button, input[type=button] {transition: all ease 0.2s 0s;}
 textarea {position: relative; resize: none; background-color: #ffffff; line-height: 2.4rem; width: 100%; display: inline-block; margin: 0; box-sizing: border-box; vertical-align: middle; border: 1px solid #e9e9ec; border-radius: 4px; font-size: 1.5rem;}
 textarea[readonly="readonly"] {color: #aaa;}

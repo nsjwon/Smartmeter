@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../css/common.css">
     <link rel="stylesheet" href="../css/layout.css">
     <link rel="stylesheet" href="../css/mainStyle.css">
+    <link rel="stylesheet" href="../css/subStyle.css">
+    <link rel="stylesheet" href="../css/popup.css">
     <script src="../js/jquery-3.6.3.min.js"></script>
     <script src="../js/common.js"></script>
     <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
@@ -28,7 +30,6 @@
                         <ul class="two-depth">
                             <li><a href="./MENU-02-01-001.html">수용가리스트</a></li>
                             <li><a href="./MENU-02-01-004.html">수용가등록</a></li>
-                            <li><a href="">수용가등록(엑셀업로드)</a></li>
                         </ul>
                     </li>
                     <li class="d1">
@@ -62,9 +63,8 @@
                     <li class="d1">
                         <a href="#none"><span>검침정보관리</span></a>
                         <ul class="two-depth">
-                            <li><a href="">검침정보리스트</a></li>
-                            <li><a href="">검침정보등록</a></li>
-                            <li><a href="">검침정보등록(엑셀업로드)</a></li>
+                            <li><a href="./MENU-07-01-001.html">검침정보리스트</a></li>
+                            <li><a href="./MENU-07-01-004.html">검침정보등록</a></li>
                             <li><a href="">검침정보다운로드(DAT)</a></li>
                         </ul>
                     </li>
@@ -72,13 +72,12 @@
                         <a href="#none"><span>공통관리</span></a>
                         <ul class="two-depth">
                             <li><a href="">공통코드리스트</a></li>
-                            <li><a href="">환경관리</a></li>
                         </ul>
                     </li>
                     <li class="d1">
                         <a href="#none"><span>통계</span></a>
                         <ul class="two-depth">
-                            <li><a href="./MENU-09-01-001.html">사용량통계</a></li>
+                            <li><a href="#none">사용량통계</a></li>
                             <li><a href="./MENU-09-02-001.html">검침현황통계</a></li>
                         </ul>
                     </li>
@@ -91,12 +90,22 @@
                     </li>
                 </ul>
             </nav>
+            <div id="setmenu">
+                <a href="./login.html" class="logout">
+                    <img src="../images/button/ic_logout.svg" alt="로그아웃">
+                    <span>로그아웃</span>
+                </a>
+                <a href="#none" class="setting popup-button" data-target="#settingAdd">
+                    <img src="../images/button/ic_setting.svg" alt="환경관리">
+                    <span>환경관리</span>
+                </a>
+            </div>
         </div>
         <main id="main-wrap">
             <h2 class="main-title">DASHBOARD</h2>
             <div class="main-content-wrap">
                 <div class="main-content-left">
-                    <div class="left-cont-01">
+                    <div class="left-cont-01 mb24">
                         <a class="stat-01" href="./MENU-02-01-001.html">
                             <span>수용가</span>
                             <p>25,534</p>
@@ -110,7 +119,7 @@
                             <p>25,534</p>
                         </a>
                     </div>
-                    <div class="left-cont-02">
+                    <div class="left-cont-02 mb24">
                         <div class="map-header">
                             <h4 class="main-sub-title">지도현황</h4>
                             <div class="map-select">
@@ -157,7 +166,7 @@
                     <!-- 공지사항 컨텐츠가 없는 경우 해당 영역 삭제:e -->
                 </div>
                 <div class="main-content-right">
-                    <div class="right-cont">
+                    <div class="right-cont mb24">
                         <div class="rc-header">
                             <h4 class="main-sub-title">검침현황통계</h4>
                             <div class="month-select">
@@ -198,7 +207,93 @@
                     </div>
                 </div>
             </div>
+            <footer id="footer-sub" class="mb0 pt24">
+                <p>(54851) 전라북도 전주시 덕진구 기린대로 1025, 3층 전북지역협력단</p>
+                <p>Copyright © K-water All Rights Reserved.</p>
+            </footer>
+            
         </main>
+
+
+
+        <!-- 환경설정등록 팝업 시작 -->
+        <div id="settingAdd" class="popup-panel">
+            <div class="popup-bg"></div>
+            <div class="popup-content popup-content-settingAdd">
+                <div class="popup-header">
+                    <h2>환경설정 등록</h2>
+                    <a class="close-button" href="#none"></a>
+                </div>
+                <div class="popup-body flex-col">
+                    
+                    <div class="board-title borderT">
+                    </div>
+                    <!-- 환경설정등록 테이블:s -->
+                    <table class="popup-table">
+                        <caption class="hide">환경설정등록 리스트</caption>
+                        <colgroup>
+                            <col style="width: 157px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">검침제한반경</th>
+                                <td>
+                                    <div class="input-type-row">
+                                        <input type="text" class="s-size"> m
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">검침년월</th>
+                                <td>
+                                    <div class="input-type-row">
+                                        <label for="type1">
+                                            <select name="type1" class="s-size">
+                                                <option>2024년</option>
+                                                <option>2023년</option>
+                                                <option>2022년</option>
+                                                <option>2021년</option>
+                                                <option>2020년</option>
+                                            </select>
+                                        </label>
+                                        <span>~</span>
+                                        <label for="type2">
+                                            <select name="type2" class="s-size">
+                                                <option>5월</option>
+                                                <option>4월</option>
+                                                <option>3월</option>
+                                                <option>2월</option>
+                                                <option>1월</option>
+                                                <option>12월</option>
+                                                <option>11월</option>
+                                                <option>10월</option>
+                                                <option>9월</option>
+                                                <option>8월</option>
+                                                <option>7월</option>
+                                                <option>6월</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 환경설정등록 테이블:e -->
+                </div>
+                <div class="popup-btn-wrap">
+                    <div class="btn-wrap">
+                        <!-- <input type="button" value="삭제" class="btn-delete"> -->
+                        <input type="button" value="등록" class="btn-blue">
+                        <input type="button" value="닫기" class="btn-gray close-button">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 환경설정등록 팝업 끝 -->
+
+
+        
     </div>
 
     <script>
