@@ -68,7 +68,7 @@ Version : v1.0
 #main-wrap {background: #f0f2f8; padding: 4rem; flex: 1;}
 .main-title {font-weight: 600; color: #79829C; font-size: 15px;}
 .main-sub-title {font-weight: 600; color: #343A40; font-size: 18px; line-height: 18px; padding-top: 2px; font-family: 'GmarketSans', 'Pretendard','Noto Sans KR','Apple SD Gothic Neo','맑은 고딕','Malgun Gothic','돋움','Dotum','굴림','Gulim','AppleGothic','Sans-serif';}
-.main-content-wrap {width: 100%; min-width: 1240px; min-height: 960px; height: calc(100vh - 212px); margin-top: 24px; display: flex;}
+.main-content-wrap {width: 100%; min-width: 1240px; min-height: 960px; height: calc(100vh - 228px); margin-top: 24px; display: flex;}
 .main-content-left {display: flex; flex-direction: column; margin-right: 24px; width: 60%;}
 .main-content-right {display: flex; flex-direction: column; width: 40%;}
 .main-content-left>div, .main-content-right>div {position: relative;}
