@@ -27,5 +27,5 @@ body {position: relative; background: #fff;}
 #wrap {position: relative; display: flex;}
 
 /* 풋터 스타일 */
-#footer-sub {color: #666c75; font-size: 13px; font-weight: 400; text-align: center; line-height: 20px; text-align: center; margin: 24px auto 30px; padding-top: 30px; border-top: 1px solid #e8e8e8;}
+#footer-sub {color: #666c75; font-size: 13px; font-weight: 400; text-align: center; line-height: 20px; text-align: center; margin: 40px auto 30px; padding-top: 30px; border-top: 1px solid #e8e8e8;}
 
