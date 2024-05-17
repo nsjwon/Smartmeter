@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/mainStyle.css">
+    <link rel="stylesheet" href="../css/subStyle.css">
+    <link rel="stylesheet" href="../css/popup.css">
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
+    <title>원격검침시스템 - 검침구역검색</title>
+    <style>
+        .popup-panel {display: block;}
+    </style>
+</head>
+<body>
+    <!-- 반복영역 건너뛰기 -->
+    <div id="skipNav">
+        <a href="#main">본문 바로가기</a>
+    </div>
+    <!-- //반복영역 건너뛰기 -->
+    <div id="wrap">
+        <!-- 검침구역검색 팝업 시작 -->
+        <div id="loadSection" class="popup-panel">
+            <div class="popup-bg"></div>
+            <div class="popup-content popup-content-loadSection">
+                <div class="popup-header">
+                    <h2>검침구역 검색</h2>
+                    <a class="close-button" href="#none"></a>
+                </div>
+                <div class="popup-body">
+                    <!-- board search :s -->
+                    <div class="brd-search mt0">    
+                        <div class="brd-search-form">
+                            <div class="search-section">
+                                <p>사용구분</p>
+                                <label for="searchState" class="hide">사용구분</label>
+                                <select name="searchState" id="searchState" class="mr10">
+                                    <option>전체</option>
+                                    <option>사용중</option>
+                                    <option>사용가능</option>
+                                </select>
+                                <input type="text" placeholder="검색어를 입력하세요" class="l-size">
+                            </div>
+                        </div>
+                        <div class="brd-search-btn">
+                            <input type="button" class="btn-search" value="검색">
+                        </div>
+                    </div>                
+
+                    <!-- board table :s -->
+                    <div class="table-wrap">
+                        <table class="brd-table">
+                            <caption>검침구역 리스트</caption>
+                            <colgroup>
+                                <col style="width: 10%;">
+                                <col style="width: 20%;">
+                                <col style="width: 30%;">
+                                <col style="width: 20%;">
+                                <col style="width: 20%;">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">순번</th>
+                                    <th scope="col">검침구역번호</th>
+                                    <th scope="col">검침구역명</th>
+                                    <th scope="col">검침담당자</th>                                    
+                                    <th scope="col">사용구분</th>                                    
+                                </tr>
+                            </thead>
+                            <tbody>	
+                                <tr class="selectable">
+                                    <td>1</td>
+                                    <td>25</td>
+                                    <td><p class="overlines">도덕면-002</p></td> 
+                                    <td>도덕면-2(홍길동)</td>
+                                    <td>사용중</td>
+                                </tr>
+                                <tr class="selectable">
+                                    <td>2</td>
+                                    <td>24</td>
+                                    <td><p class="overlines">풍양면-001</p></td> 
+                                    <td>풍양면(홍길동)</td>
+                                    <td>사용중</td>
+                                </tr>
+                                <tr class="selectable">
+                                    <td>3</td>
+                                    <td>23</td>
+                                    <td><p class="overlines">과역면-001</p></td> 
+                                    <td>과역면(홍길동)</td>
+                                    <td>사용중</td>
+                                </tr>
+                                <tr class="selectable">
+                                    <td>4</td>
+                                    <td>21</td>
+                                    <td><p class="overlines">두원면</p></td> 
+                                    <td>두원면(홍길동)</td>
+                                    <td>사용중</td>
+                                </tr>
+                                <tr class="selectable">
+                                    <td>5</td>
+                                    <td>20</td>
+                                    <td><p class="overlines">남양면</p></td> 
+                                    <td>남양면(홍길동)</td>
+                                    <td>사용중</td>
+                                </tr>
+                                <tr class="selectable">
+                                    <td>6</td>
+                                    <td>28</td>
+                                    <td><p class="overlines">영남면-002</p></td> 
+                                    <td>영남면-2(홍길동)</td>
+                                    <td>사용중</td>
+                                </tr>
+                                <!-- <tr>
+                                    <td>7</td>
+                                    <td>19</td>
+                                    <td><p class="overlines">도덕면-001</p></td> 
+                                    <td>도덕면-1(홍길동)</td>
+                                    <td>사용중</td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>17</td>
+                                    <td><p class="overlines">포두면-001</p></td> 
+                                    <td>포두면(홍길동)</td>
+                                    <td>사용중</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>16</td>
+                                    <td><p class="overlines">금산면-001</p></td> 
+                                    <td>금산면-1(홍길동)</td>
+                                    <td>사용중</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>15</td>
+                                    <td><p class="overlines">고흥읍-001</p></td> 
+                                    <td>고흥읍-1(홍길동)</td>
+                                    <td>사용중</td>
+                                </tr> -->
+
+                                <!-- 게시글이 없을때  -->
+                                <!-- <tr> 
+                                    <td colspan="5" class="center brd-no-cont">등록된 데이터가 없습니다.</td>
+                                </tr> -->
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- board table :e -->
+    
+                    <!-- page:s -->
+                    <div class="pagination">       
+                        <span class="prev-group">
+                            <a class="page-first" href="#none" onclick="" onkeypress=""><span class="hide">처음 페이지로 이동</span></a>
+                            <a class="page-prev" href="#none" onclick="" onkeypress=""><span class="hide">이전 페이지로 이동</span></a>
+                        </span>
+                        <a class="on" href="#none" onclick="" onkeypress="">1</a><a href="=" onclick="" onkeypress="">2</a><a href="=" onclick="" onkeypress="">3</a><a href="=" onclick="" onkeypress="">4</a><a href="=" onclick="" onkeypress="">5</a>
+                        <span class="next-group">
+                            <a class="page-next" href="#none" onclick="" onkeypress=""><span class="hide">다음 페이지로 이동</span></a>
+                            <a class="page-end" href="#none" onclick="" onkeypress=""><span class="hide">마지막 페이지로 이동</span></a>
+                        </span>                
+                    </div>                  
+                    <!-- page:e -->      
+                </div>
+                <div class="popup-btn-wrap">
+                    <div class="btn-wrap">
+                        <!-- <input type="button" value="삭제" class="btn-delete"> -->
+                        <input type="button" value="적용" class="btn-blue">
+                        <input type="button" value="닫기" class="btn-gray close-button">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 검침구역검색 팝업 끝 -->
+
+    </div>
+</body>
+</html>
