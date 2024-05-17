@@ -32,7 +32,7 @@ Version : v1.0
 .brd-search-form .search-text-flex input[type=text] {border: 1px solid #dde2e7;}
 .brd-search-btn {display: flex; align-items: flex-end; justify-content: flex-end;}
 .brd-search-form .s-input {width: 85px; min-width: unset;}
-.brd-search-form .sm-input {width: 130px;}
+.brd-search-form .sm-input {width: 134px;}
 .brd-search-form .m-input {width: 180px;}
 .brd-search-form .l-input {width: 366px;}
 .brd-search-form .xl-input {width: 477px;}
