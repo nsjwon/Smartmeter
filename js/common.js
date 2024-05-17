@@ -199,29 +199,3 @@ $(document).ready(function(){
     });
 });
 
-
-
-//팝업 정중앙 위치
-$(document).ready(function() {
-    function centerPopup() {
-        var $popupContent = $('.popup-content');
-        var windowHeight = $(window).height();
-        var windowWidth = $(window).width();
-        var popupWidth = $popupContent.outerWidth();
-        var popupHeight = $popupContent.outerHeight();
-
-        var leftPosition = (windowWidth - popupWidth) / 2;
-        var topPosition = (windowHeight - popupHeight) / 2;
-
-        $popupContent.css({
-            'left': leftPosition + 'px',
-            'top': topPosition + 'px'
-        });
-    }
-
-    centerPopup();
-    
-    $(window).resize(function() {
-        centerPopup();
-    });
-});
