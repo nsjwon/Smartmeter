@@ -30,12 +30,12 @@ Version : v1.0
 #gnb {margin: 4rem 0;}
 #setmenu {position: absolute; left: 3.4rem; bottom: 4rem; color: #6A7187; font-weight: 500; font-size: 13px; display: flex;}
 #setmenu .logout {display: flex; align-items: center;}
-#setmenu>a:hover {color: #A5ADC3;}
+#setmenu>a:hover {color: #BCC4DD;}
 #setmenu>a>img {margin-right: 10px;}
 #setmenu .setting {position: relative; padding-left: 42px; display: flex; align-items: center;}
 #setmenu .setting:before {position: absolute; left: 21px; top: 2px; display: block; height: 16px; width: 1px; background: #6a7187; content: '';}
 .one-depth .d1 {padding: 2px 0;}
-.one-depth .d1>a {color: #A5ADC3; position: relative; width: 248px; height: 52px; padding: 0 20px 0 54px; font-size: 1.6rem; font-weight: 500; display: flex; align-items: center;}
+.one-depth .d1>a {color: #BCC4DD; position: relative; width: 248px; height: 52px; padding: 0 20px 0 54px; font-size: 1.6rem; font-weight: 500; display: flex; align-items: center;}
 .one-depth .d1>a:before {position: absolute; left: 20px; top: 16px; content: ''; display: block; width: 20px; height: 20px;}
 .one-depth .d1:first-child>a:before {background: url(../images/nav/side01-normal.svg) no-repeat; background-size: contain;}
 .one-depth .d1:nth-child(2)>a:before {background: url(../images/nav/side02-normal.svg) no-repeat; background-size: contain;}
@@ -60,7 +60,7 @@ Version : v1.0
 .one-depth .d1.active>a:after {position: absolute; right: 20px; top: 16px; content: ''; display: block; width: 20px; height: 20px; background: url(../images/main/ic_arrowup.svg) no-repeat;}
 .two-depth {padding: 11px 0 16px 0;}
 .two-depth li {padding: 1px 0;}
-.two-depth li a {color: #A5ADC3; width: 100%; display: block; height: 35px; line-height: 35px; padding: 0 20px 0 56px; border-radius: 6px;}
+.two-depth li a {color: #BCC4DD; width: 100%; display: block; height: 35px; line-height: 35px; padding: 0 20px 0 56px; border-radius: 6px;}
 .two-depth li a:hover {background: #242a3a; color: #fff;}
 .two-depth li.focus a {color: #fff; background: #242a3a;}
 
@@ -109,6 +109,7 @@ Version : v1.0
 .left-cont-03 .main-notice-title {font-size: 16px; font-weight: bold; color: #1C1D1F;}
 .left-cont-03 .main-notice-text {font-size: 15px; font-weight: 400; color: #666; margin-top: 10px; line-height: 20px; flex: 1;}
 .left-cont-03 .main-notice-date {font-size: 13px; font-weight: 400; color: #A5ACB7; margin-top: 15px;}
+.left-cont-03 .main-notice:hover .main-notice-text, .left-cont-03 .main-notice:hover .main-notice-title {text-decoration: underline;}
 .left-cont-03 .more-view {position: absolute; width: 28px; height: 28px; display: block; background: url(../images/main/ic_moreview.svg) no-repeat; right: 28px; top: 20px;}
 .right-cont {background: #fff; color: #343a40; border-radius: 8px; padding: 24px; height: calc((100% - 24px) / 2); display: flex; flex-direction: column; flex: 1; gap: 15px;}
 .right-cont .rc-header {display: flex; align-items: center; justify-content: space-between; padding-right: 42px;}
