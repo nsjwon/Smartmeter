@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/mainStyle.css">
+    <link rel="stylesheet" href="../css/subStyle.css">
+    <link rel="stylesheet" href="../css/popup.css">
+    <script src="../js/jquery-3.6.3.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=h4haw5yh2n"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.36.0/apexcharts.min.js"></script>
+    <title>원격검침시스템 - 환경관리</title>
+    <style>
+        .popup-panel {display: block;}
+    </style>
+</head>
+<body>
+    <!-- 반복영역 건너뛰기 -->
+    <div id="skipNav">
+        <a href="#main">본문 바로가기</a>
+    </div>
+    <!-- //반복영역 건너뛰기 -->
+    <div id="wrap">
+        <!-- 환경설정등록 팝업 시작 -->
+        <div id="settingAdd" class="popup-panel">
+            <div class="popup-bg"></div>
+            <div class="popup-content popup-content-settingAdd">
+                <div class="popup-header">
+                    <h2>환경설정 등록</h2>
+                    <a class="close-button" href="#none"></a>
+                </div>
+                <div class="popup-body flex-col">
+                    
+                    <div class="board-title borderT">
+                    </div>
+                    <!-- 환경설정등록 테이블:s -->
+                    <table class="popup-table">
+                        <caption class="hide">환경설정등록 리스트</caption>
+                        <colgroup>
+                            <col style="width: 157px;">
+                            <col>
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th scope="row">검침제한반경</th>
+                                <td>
+                                    <div class="input-type-row">
+                                        <input type="text" class="s-size"> m
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th scope="row">검침년월</th>
+                                <td>
+                                    <div class="input-type-row">
+                                        <label for="type11">
+                                            <select name="type11" id="type11" class="s-size">
+                                                <option>2024년</option>
+                                                <option>2023년</option>
+                                                <option>2022년</option>
+                                                <option>2021년</option>
+                                                <option>2020년</option>
+                                            </select>
+                                        </label>
+                                        <span>~</span>
+                                        <label for="type12">
+                                            <select name="type12" id="type12" class="s-size">
+                                                <option>5월</option>
+                                                <option>4월</option>
+                                                <option>3월</option>
+                                                <option>2월</option>
+                                                <option>1월</option>
+                                                <option>12월</option>
+                                                <option>11월</option>
+                                                <option>10월</option>
+                                                <option>9월</option>
+                                                <option>8월</option>
+                                                <option>7월</option>
+                                                <option>6월</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- 환경설정등록 테이블:e -->
+                </div>
+                <div class="popup-btn-wrap">
+                    <div class="btn-wrap">
+                        <!-- <input type="button" value="삭제" class="btn-delete"> -->
+                        <input type="button" value="등록" class="btn-blue">
+                        <input type="button" value="닫기" class="btn-gray close-button">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 환경설정등록 팝업 끝 -->
+
+    </div>
+</body>
+</html>
