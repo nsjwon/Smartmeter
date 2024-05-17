@@ -37,7 +37,7 @@ Version : v1.0
 .brd-search-form .l-input {width: 366px;}
 .brd-search-form .xl-input {width: 477px;}
 .brd-search-form .full-input {width: 822px; max-width: calc(100% - 131px);}
-.brd-search-form .btnplus {border-radius: 4px 0 0 4px;}
+.brd-search-form .search-text-flex input[type=text].btnplus {border-radius: 4px 0 0 4px; border: unset ; border-left: 1px solid #dde2e7; border-top: 1px solid #dde2e7; border-bottom: 1px solid #dde2e7;}
 
 /* Button Style */
 .brd-search-btn input[type=button] {height: 4rem; border-radius: 4px; display: flex; align-items: center; justify-content: center;} 
