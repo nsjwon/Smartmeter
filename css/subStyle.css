@@ -5,7 +5,7 @@ Create date : 2024-05-13
 Version : v1.0
 -------------------------------------------------*/
 
-#sub-wrap {padding: 4rem 6rem; flex: 1;}
+#sub-wrap {padding: 4rem 6rem; flex: 1; min-width: 1300px;}
 .sub-inner-wrap {display: flex; flex-direction: column;}
 
 .menu-nav {display: flex; align-items: center; justify-content: flex-end; color: #666; font-weight: 300; margin-bottom: 1.8rem;}
@@ -18,18 +18,23 @@ Version : v1.0
 
 .brd-search {position: relative; display: flex; justify-content: space-between; width: 100%; margin-right: 4rem; margin: 3rem 0; border-radius: 12px; background: #f0f2f8; padding: 3rem 4rem;}
 .brd-search-form {width: 100%; flex-wrap: wrap; display: flex; column-gap: 4rem; row-gap: 1rem;}
-.brd-search-form.multiple>div {min-width: 30%;}
+.brd-search-form.multiple {column-gap: 3.4rem;}
+.brd-search-form.multiple>div {min-width: 22%;}
 .brd-search-form p {color: #222; font-weight: 500; font-size: 1.5rem; width: 82px; line-height: 4rem;}
 .brd-search-form p.wide {width: 96px;}
 .brd-search-form > div {display: flex; align-items: center; justify-content: flex-start;}
 .brd-search-form select {min-width: 160px; padding: 0 34px 0 14px; border: 1px solid #dde2e7;}
 .brd-search-form select:focus {outline: #4763c2 2px solid;}
 .brd-search-form .search-text {width: 100%;}
-.brd-search-form .search-text input[type=text] {width: 450px; border: 1px solid #dde2e7;}
+.brd-search-form .search-text input[type=text] {border: 1px solid #dde2e7;}
 .brd-search-form .search-text input[type=text]:focus {outline: #4763c2 2px solid;}
 .brd-search-form .search-text-flex {width: auto;}
 .brd-search-form .search-text-flex input[type=text] {border: 1px solid #dde2e7;}
 .brd-search-btn {display: flex; align-items: flex-end; justify-content: flex-end;}
+.brd-search-form .s-input {width: 85px; min-width: unset;}
+.brd-search-form .m-input {width: 180px;}
+.brd-search-form .l-input {width: 366px;}
+.brd-search-form .xl-input {width: 482px;}
 
 /* Button Style */
 .brd-search-btn input[type=button] {height: 4rem; border-radius: 4px; display: flex; align-items: center; justify-content: center;} 
@@ -62,8 +67,10 @@ Version : v1.0
 .btn-searchadr:hover {background: #344257 url(../images/board/ic_search.svg) no-repeat 22px 13px;}
 .btn-download {background: #5E667E url(../images/button/ic_alldown.svg) no-repeat 21px 13px; color: #ffffff; border: none; padding: 1rem 2rem 1rem 4.4rem; font-size: 1.4rem;}
 .btn-download:hover {background: #4a5369 url(../images/button/ic_alldown.svg) no-repeat 21px 13px; transition: all ease 0.2s 0s;}
-.btn-location {background: #3e5068; color: #fff; padding: 0 22px; border: none; }
+.btn-location {background: #3e5068; color: #fff; padding: 0 22px; border: none; min-width: 122px;}
 .btn-location:hover {background: #344257;}
+.btn-srch {background: #3e5068 url(../images/board/ic_search.svg) no-repeat 25px 13px; color: #fff; padding: 0 22px 0 42px; border: none; min-width: 100px;}
+.btn-srch:hover {background: #344257 url(../images/board/ic_search.svg) no-repeat 25px 13px;}
 .btn-regist {position: relative; z-index: -2; border: 0; border-radius: 4px; min-width: 86px; overflow: hidden; display: flex; align-items: center; justify-content: center; height: 38px; color: #fff; padding: 0 2rem;}
 .fill-one {position: absolute; background-image: linear-gradient(90deg, rgba(55,171,236,1) 0%, rgba(85,110,230,1) 50%, rgba(55,171,236,1) 100%); height: 180px; width: 180px; bottom: -50%; right: -60%; z-index: -1; transform: rotate(45deg); transition: all .3s ease;}
 .button-container {cursor: pointer; margin-right: 10px; border-radius: 4px;}
@@ -81,6 +88,7 @@ Version : v1.0
 .brd-num li:last-child:after {display: none;}
 
 /* 테이블 스타일 */
+.brd-table-wrap {max-width: 100%; overflow-x: auto;}
 .brd-table {table-layout: fixed; box-sizing: border-box; border-collapse: collapse; width: 100%; margin: 0; font-size: 1.6rem; line-height: 1.2; border-spacing: 0;}
 .brd-table thead tr {height: 5.4rem;}
 .brd-table thead tr th {background: #f0f2f8;}
